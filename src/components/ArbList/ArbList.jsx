@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { getData } from '../../services/API';
 import TraidingPairItem from 'components/TraidingPairItem';
-import { List } from './ArbList.styled';
+import { List, Wrapper, Time } from './ArbList.styled';
 
 export default function ArbList() {
   const [dataList, setDataList] = useState([]);
+  const [arbPercentage, setArbPercentage] = useState(5);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,18 +19,24 @@ export default function ArbList() {
 
     return () => clearInterval(interval);
   }, []);
-  const sortData = dataList.sort((a, b) => b[1] - a[1]);
+  const { updateTime, sortData } = dataList;
+
   return (
-    <>
+    <Wrapper>
+      <Time>Last update: {updateTime}</Time>
       <List>
         {sortData?.map(el => {
           const key = el[0];
           const arbValue = el[1];
           return (
-            <>{arbValue > 0 && <TraidingPairItem key={key} data={el} />}</>
+            <>
+              {arbValue > arbPercentage && (
+                <TraidingPairItem key={key} data={el} />
+              )}
+            </>
           );
         })}
       </List>
-    </>
+    </Wrapper>
   );
 }

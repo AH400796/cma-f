@@ -19,7 +19,6 @@ export default function TraidingPairsItem({ data }) {
         <PairName>{name}</PairName>
         <Arbitrage>{arbitrageValue}%</Arbitrage>
       </ArbWrapper>
-
       <BlockWrapper>
         <BuyBlock
           url={buyUrl}

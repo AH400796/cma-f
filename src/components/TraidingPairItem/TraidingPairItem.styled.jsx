@@ -4,8 +4,8 @@ export const ListItem = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  width: 100%;
+
+  width: 50%;
   padding: 0px 10px 10px;
   margin-bottom: 20px;
 
@@ -22,7 +22,7 @@ export const PairName = styled.span`
 `;
 
 export const Arbitrage = styled.span`
-  padding: 10px;
+  padding: 0 10px 10px;
   font-size: 28px;
   font-weight: bold;
   color: ${props => {
@@ -32,9 +32,11 @@ export const Arbitrage = styled.span`
 
 export const BlockWrapper = styled.div`
   display: flex;
+
   gap: 10px;
 `;
 export const ArbWrapper = styled.div`
+  align-items: center;
   display: flex;
   gap: 30px;
 `;
