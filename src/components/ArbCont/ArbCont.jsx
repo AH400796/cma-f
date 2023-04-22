@@ -1,11 +1,20 @@
 import { useState, useEffect } from 'react';
 import { getData } from '../../services/API';
 import TraidingPairItem from 'components/TraidingPairItem';
-import { List, Wrapper, Time } from './ArbList.styled';
+import RangeInput from 'components/RangeInput';
+import {
+  List,
+  Wrapper,
+  Time,
+  InfoWrapper,
+  Percentage,
+  PercentageWrapper,
+  PercentageText,
+} from './ArbCont.styled';
 
-export default function ArbList() {
+export default function ArbCont() {
   const [dataList, setDataList] = useState([]);
-  const [arbPercentage, setArbPercentage] = useState(1);
+  const [arbPercentage, setArbPercentage] = useState(2);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,11 +28,25 @@ export default function ArbList() {
 
     return () => clearInterval(interval);
   }, []);
+
   const { updateTime = '--/--/--', sortData } = dataList;
+
+  const handleChange = event => {
+    setArbPercentage(event.target.value);
+  };
 
   return (
     <Wrapper>
-      <Time>Last update: {updateTime}</Time>
+      <InfoWrapper>
+        <Time>Last update: {updateTime}</Time>
+        <PercentageWrapper>
+          <PercentageText>
+            Minimum arbitrage level: <Percentage>{arbPercentage}</Percentage>%
+          </PercentageText>
+
+          <RangeInput onChange={handleChange} value={arbPercentage} />
+        </PercentageWrapper>
+      </InfoWrapper>
       <List>
         {sortData?.map(el => {
           const key = el[0];

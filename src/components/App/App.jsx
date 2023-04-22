@@ -1,10 +1,10 @@
-import ArbList from 'components/ArbList/ArbList';
+import ArbCont from 'components/ArbCont';
 import { Wrapper } from './App.styled';
 
 export default function App() {
   return (
     <Wrapper>
-      <ArbList />
+      <ArbCont />
     </Wrapper>
   );
 }

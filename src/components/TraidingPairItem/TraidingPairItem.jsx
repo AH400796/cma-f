@@ -1,7 +1,7 @@
 import SellBlock from 'components/SellBlock';
 import BuyBlock from 'components/BuyBlock';
 import {
-  ListItem,
+  Wrapper,
   PairName,
   BlockWrapper,
   Arbitrage,
@@ -14,7 +14,7 @@ export default function TraidingPairsItem({ data }) {
   const { market: buyMarket, url: buyUrl, buyPrice, buyQty, fee } = data[2];
   const { market: sellMarket, url: sellUrl, sellPrice, sellQty } = data[3];
   return (
-    <ListItem>
+    <Wrapper>
       <ArbWrapper>
         <PairName>{name}</PairName>
         <Arbitrage>{arbitrageValue}%</Arbitrage>
@@ -34,6 +34,6 @@ export default function TraidingPairsItem({ data }) {
           sellQuantity={sellQty}
         />
       </BlockWrapper>
-    </ListItem>
+    </Wrapper>
   );
 }
