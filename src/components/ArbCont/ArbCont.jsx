@@ -21,6 +21,7 @@ export default function ArbCont() {
       const responce = await getData();
       setDataList(responce.data);
     };
+
     fetchData();
     const interval = setInterval(() => {
       fetchData();
@@ -29,7 +30,7 @@ export default function ArbCont() {
     return () => clearInterval(interval);
   }, []);
 
-  const { updateTime = '--/--/--', sortData } = dataList;
+  const { updateTime = '-- / -- / --', sortData } = dataList;
 
   const handleChange = event => {
     setArbPercentage(event.target.value);
@@ -50,13 +51,11 @@ export default function ArbCont() {
       <List>
         {sortData?.map(el => {
           const key = el[0];
-          const arbValue = el[1];
+          const arbitrageValue = el[1];
           return (
-            <>
-              {arbValue > arbPercentage && (
-                <TraidingPairItem key={key} data={el} />
-              )}
-            </>
+            arbitrageValue > arbPercentage && (
+              <TraidingPairItem key={key} data={el} />
+            )
           );
         })}
       </List>

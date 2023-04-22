@@ -11,6 +11,7 @@ import {
 export default function TraidingPairsItem({ data }) {
   const name = data[0];
   const arbitrageValue = data[1];
+
   const { market: buyMarket, url: buyUrl, buyPrice, buyQty, fee } = data[2];
   const { market: sellMarket, url: sellUrl, sellPrice, sellQty } = data[3];
   return (

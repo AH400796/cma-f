@@ -40,7 +40,7 @@ export default function BuyBlock({
         </DataWrapper>
         <DataWrapper>
           <Data>
-            fee: <DataFee> (amount | coin | network) </DataFee>
+            fee: <DataFee> (amount-coin / network) </DataFee>
           </Data>
         </DataWrapper>
         <DataFeeList>
@@ -48,8 +48,8 @@ export default function BuyBlock({
             const [amount, coin, , network] = el;
             return (
               <DataFeeListItem key={network}>
-                <DataFeeValue>{amount} |</DataFeeValue>
-                <DataFeeValue>{coin} |</DataFeeValue>
+                <DataFeeValue>{amount}</DataFeeValue>
+                <DataFeeValue>{coin} /</DataFeeValue>
                 <DataFeeValue>{network}</DataFeeValue>
               </DataFeeListItem>
             );
