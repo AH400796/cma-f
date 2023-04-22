@@ -5,7 +5,7 @@ import { List, Wrapper, Time } from './ArbList.styled';
 
 export default function ArbList() {
   const [dataList, setDataList] = useState([]);
-  const [arbPercentage, setArbPercentage] = useState(5);
+  const [arbPercentage, setArbPercentage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +19,7 @@ export default function ArbList() {
 
     return () => clearInterval(interval);
   }, []);
-  const { updateTime, sortData } = dataList;
+  const { updateTime = '--/--/--', sortData } = dataList;
 
   return (
     <Wrapper>
