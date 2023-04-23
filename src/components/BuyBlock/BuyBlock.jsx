@@ -4,6 +4,7 @@ import {
   Type,
   Marketplace,
   Arrow,
+  Delete,
   Data,
   DataFee,
   DataValue,
@@ -14,6 +15,7 @@ import {
   DataFeeListItem,
 } from './BuyBlock.styled';
 import greenArrow from '../../images/green_arrow.svg';
+import { excludePair } from 'services/API';
 
 export default function BuyBlock({
   url,
@@ -22,8 +24,10 @@ export default function BuyBlock({
   buyQuantity,
   fee,
 }) {
+  const handleClick = () => {};
   return (
     <Wrapper>
+      <Delete onClick={handleClick}>X</Delete>
       <Link href={url} target="_blank" rel="noopener noreferrer">
         <MarketWrapper>
           <Type>BUY</Type>
@@ -38,23 +42,6 @@ export default function BuyBlock({
           <Data>quantity:</Data>
           <DataValue>{buyQuantity}</DataValue>
         </DataWrapper>
-        <DataWrapper>
-          <Data>
-            fee: <DataFee> (amount-coin / network) </DataFee>
-          </Data>
-        </DataWrapper>
-        <DataFeeList>
-          {fee?.map(el => {
-            const [amount, coin, , network] = el;
-            return (
-              <DataFeeListItem key={network}>
-                <DataFeeValue>{amount}</DataFeeValue>
-                <DataFeeValue>{coin} /</DataFeeValue>
-                <DataFeeValue>{network}</DataFeeValue>
-              </DataFeeListItem>
-            );
-          })}
-        </DataFeeList>
       </Link>
     </Wrapper>
   );

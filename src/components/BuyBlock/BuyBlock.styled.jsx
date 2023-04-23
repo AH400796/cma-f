@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -8,8 +9,33 @@ export const Wrapper = styled.div`
   width: 350px;
 
   border-radius: 5px;
-  background-color: #c9f3c1;
+  background: linear-gradient(
+    99.04deg,
+    #c9f3c1 -1.74%,
+    rgba(255, 255, 255, 0.37) 116.29%
+  );
+
   box-shadow: 2px 2px 5px 0px #444343;
+`;
+
+export const Delete = styled.button`
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  font-weight: 700;
+
+  background-color: #9c0202;
+  border: none;
+  border-radius: 5px 0 0 0;
+  clip-path: polygon(0 0, 0% 100%, 100% 0);
+
+  cursor: pointer;
 `;
 
 export const Link = styled.a`
@@ -17,7 +43,7 @@ export const Link = styled.a`
 `;
 
 export const Type = styled.span`
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   color: #28680b;
 `;
@@ -25,7 +51,7 @@ export const Type = styled.span`
 export const MarketWrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   gap: 20px;
   margin-bottom: 20px;
 `;
@@ -33,11 +59,13 @@ export const MarketWrapper = styled.div`
 export const Marketplace = styled.span`
   font-size: 20px;
   font-weight: 900;
-  color: #141111;
+  padding: 3px 10px 5px;
+  color: #110264;
+  background-color: #e7e703;
 `;
 
 export const Arrow = styled.img`
-  width: 50px;
+  width: 30px;
 `;
 
 export const DataWrapper = styled.div`

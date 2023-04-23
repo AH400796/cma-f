@@ -1,20 +1,22 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.button`
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 10px 15px;
-  width: 50%;
+  padding: 5px 15px;
+  width: 100%;
 
+  border: none;
   border-radius: 5px;
   background: linear-gradient(
     99.04deg,
-    #fba4a4 -1.74%,
+    #9c95c4 -1.74%,
     rgba(255, 255, 255, 0.37) 116.29%
   );
   box-shadow: 2px 2px 5px 0px #444343;
+  cursor: pointer;
 `;
 
 export const Delete = styled.button`
@@ -31,7 +33,7 @@ export const Delete = styled.button`
 
   background-color: #9c0202;
   border: none;
-  border-radius: 5px 0 0 0;
+  border-radius: 5px;
   clip-path: polygon(0 0, 0% 100%, 100% 0);
 
   cursor: pointer;
@@ -44,7 +46,7 @@ export const Link = styled.a`
 export const Type = styled.span`
   font-size: 20px;
   font-weight: 700;
-  color: red;
+  color: #28680b;
 `;
 
 export const MarketWrapper = styled.div`
@@ -68,24 +70,54 @@ export const Arrow = styled.img`
 `;
 
 export const DataWrapper = styled.div`
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 20px;
+  width: 100%; */
   padding: 2px 5px;
-  background-color: #f5dada;
-  margin-bottom: 10px;
+  background-color: #e1f3dd;
+
   border: 1px dotted #797b7c;
   border-radius: 5px;
 `;
 
+export const DataFeeList = styled.ul`
+  list-style: none;
+`;
+
+export const DataFeeListItem = styled.li`
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 10px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  background-color: #e1f3dd;
+  border: 1px dotted #797b7c;
+`;
+
 export const Data = styled.div`
+  display: block;
   font-size: 14px;
   font-weight: 600;
   color: #2e2d2d;
 `;
+// export const DataFee = styled.div`
+//   font-size: 12px;
+//   font-weight: 600;
+//   color: #2e2d2d;
+// `;
 
 export const DataValue = styled.div`
   font-size: 16px;
   font-weight: 700;
   color: black;
+`;
+
+export const DataFeeValue = styled.div`
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #363535;
 `;

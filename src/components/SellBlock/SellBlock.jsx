@@ -1,5 +1,6 @@
 import {
   Wrapper,
+  Delete,
   Link,
   Type,
   Marketplace,
@@ -17,13 +18,15 @@ export default function SellBlock({
   sellPrice,
   sellQuantity,
 }) {
+  const handleClick = () => {};
   return (
     <Wrapper>
+      <Delete onClick={handleClick}>X</Delete>
       <Link href={url} target="_blank" rel="noopener noreferrer">
         <MarketWrapper>
           <Type>SELL</Type>
-          <Marketplace>{marketplace}</Marketplace>
           <Arrow src={redArrow} alt="sell arrow" width={30} />
+          <Marketplace>{marketplace}</Marketplace>
         </MarketWrapper>
         <DataWrapper>
           <Data>price, (USDT):</Data>

@@ -25,6 +25,7 @@ export default function ArbCont() {
     fetchData();
     const interval = setInterval(() => {
       fetchData();
+      console.log(1);
     }, 60000);
 
     return () => clearInterval(interval);
@@ -44,7 +45,6 @@ export default function ArbCont() {
           <PercentageText>
             Minimum arbitrage level: <Percentage>{arbPercentage}</Percentage>%
           </PercentageText>
-
           <RangeInput onChange={handleChange} value={arbPercentage} />
         </PercentageWrapper>
       </InfoWrapper>
