@@ -4,7 +4,6 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px 50px;
-  /* width: auto; */
 `;
 
 export const InfoWrapper = styled.div`
@@ -18,7 +17,7 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   list-style: none;
-  /* max-width: fit-content; */
+
   width: 635px;
 `;
 
@@ -30,6 +29,7 @@ export const PercentageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 5px;
+  width: 400px;
 `;
 
 export const Percentage = styled.span`

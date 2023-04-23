@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.li`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,6 +23,21 @@ export const PairName = styled.span`
   font-size: 24px;
   font-weight: bold;
   color: #cc3b0f;
+`;
+
+export const StarButton = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 10px;
+`;
+
+export const Star = styled.img`
+  width: 20px;
+  height: 20px;
 `;
 
 export const Arbitrage = styled.span`

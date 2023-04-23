@@ -1,15 +1,16 @@
 import { Input } from './RangeInput.styled.jsx';
 
-export default function RangeInput({ value, onChange }) {
+export default function RangeInput({ value, onChange, setupRange }) {
+  const [min, max, step, name] = setupRange;
   return (
     <Input
       type="range"
-      name="arbpercentage"
+      name={name}
       value={value}
-      min="0"
-      max="20"
-      step="0.1"
-      id="arb-percentage"
+      min={min}
+      max={max}
+      step={step}
+      id={name}
       onChange={event => onChange(event)}
     />
   );

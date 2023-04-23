@@ -21,11 +21,16 @@ export default function SellBlock({
   const handleClick = () => {};
   return (
     <Wrapper>
-      <Delete onClick={handleClick}>X</Delete>
+      <Delete
+        onClick={handleClick}
+        title="Remove markets pair from the scaning"
+      >
+        {`\u2716`}
+      </Delete>
       <Link href={url} target="_blank" rel="noopener noreferrer">
         <MarketWrapper>
           <Type>SELL</Type>
-          <Arrow src={redArrow} alt="sell arrow" width={30} />
+          <Arrow src={redArrow} alt="sell arrow" />
           <Marketplace>{marketplace}</Marketplace>
         </MarketWrapper>
         <DataWrapper>

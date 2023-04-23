@@ -30,11 +30,11 @@ export default function ArbCont() {
     return () => clearInterval(interval);
   }, []);
 
-  const { updateTime = '-- / -- / --', sortData } = dataList;
-
   const handleChange = event => {
     setArbPercentage(event.target.value);
   };
+  const { updateTime = '-- / -- / --', sortData } = dataList;
+  const setupRange = [0, 20, 0.1, 'arbpercentage'];
 
   return (
     <Wrapper>
@@ -44,13 +44,18 @@ export default function ArbCont() {
           <PercentageText>
             Minimum arbitrage level: <Percentage>{arbPercentage}</Percentage>%
           </PercentageText>
-          <RangeInput onChange={handleChange} value={arbPercentage} />
+          <RangeInput
+            onChange={handleChange}
+            value={arbPercentage}
+            setupRange={setupRange}
+          />
         </PercentageWrapper>
       </InfoWrapper>
       <List>
         {sortData?.map(el => {
           const key = el[0];
           const arbitrageValue = el[1];
+
           return (
             arbitrageValue > arbPercentage && (
               <TraidingPairItem key={key} data={el} />

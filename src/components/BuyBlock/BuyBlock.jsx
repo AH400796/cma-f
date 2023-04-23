@@ -23,11 +23,11 @@ export default function BuyBlock({
   const handleClick = () => {};
   return (
     <Wrapper>
-      <Delete onClick={handleClick}>X</Delete>
+      <Delete onClick={handleClick}>{`\u2716`}</Delete>
       <Link href={url} target="_blank" rel="noopener noreferrer">
         <MarketWrapper>
           <Type>BUY</Type>
-          <Arrow src={greenArrow} alt="sell arrow" width={30} />
+          <Arrow src={greenArrow} alt="sell arrow" />
           <Marketplace>{marketplace}</Marketplace>
         </MarketWrapper>
         <DataWrapper>
