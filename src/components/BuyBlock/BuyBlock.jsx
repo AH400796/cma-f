@@ -6,16 +6,12 @@ import {
   Arrow,
   Delete,
   Data,
-  DataFee,
   DataValue,
-  DataFeeValue,
   MarketWrapper,
   DataWrapper,
-  DataFeeList,
-  DataFeeListItem,
 } from './BuyBlock.styled';
 import greenArrow from '../../images/green_arrow.svg';
-import { excludePair } from 'services/API';
+// import { excludePair } from 'services/API';
 
 export default function BuyBlock({
   url,

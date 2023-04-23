@@ -25,7 +25,6 @@ export default function ArbCont() {
     fetchData();
     const interval = setInterval(() => {
       fetchData();
-      console.log(1);
     }, 60000);
 
     return () => clearInterval(interval);
