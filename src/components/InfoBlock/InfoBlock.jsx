@@ -65,14 +65,14 @@ export default function InfoBlock({
             </DataWrapper>
             <DataFeeList>
               {fee?.map(el => {
-                const [coinAmount, coin, , network] = el;
+                const [amount, coin, , network] = el;
                 const equiv = name.includes(coin)
-                  ? Number((buyPrice * coinAmount).toFixed(2))
+                  ? Number((buyPrice * amount).toFixed(2))
                   : '???';
                 return (
                   <FeeWrapper key={network}>
                     <DataFeeListItem>
-                      <DataFeeValue>{coinAmount}</DataFeeValue>
+                      <DataFeeValue>{amount}</DataFeeValue>
                       <DataFeeValue>{coin} </DataFeeValue>
                       <DataFeeValue> [{network}]</DataFeeValue>
                     </DataFeeListItem>
