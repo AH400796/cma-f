@@ -32,9 +32,9 @@ export default function TraidingPairsItem({ data, showFixedArb }) {
     <Wrapper>
       <StarButton title="Fixed arb" onClick={handleClick}>
         {fixedArb ? (
-          <Star src={starWhite} alt="star" />
-        ) : (
           <Star src={star} alt="star" />
+        ) : (
+          <Star src={starWhite} alt="star" />
         )}
       </StarButton>
       <ArbWrapper>
