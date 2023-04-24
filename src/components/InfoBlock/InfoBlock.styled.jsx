@@ -45,7 +45,7 @@ export const Calc = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 40%;
+  width: 35%;
 `;
 
 export const Delete = styled.button`
