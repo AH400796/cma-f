@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Wrapper,
   Delete,
@@ -17,10 +18,16 @@ export default function SellBlock({
   marketplace,
   sellPrice,
   sellQuantity,
+  exclusion,
 }) {
-  const handleClick = () => {};
+  const [exclused, setExclused] = useState(false);
+
+  const handleClick = () => {
+    setExclused(true);
+    exclusion(marketplace);
+  };
   return (
-    <Wrapper>
+    <Wrapper exclused={exclused}>
       <Delete
         onClick={handleClick}
         title="Remove markets pair from the scaning"

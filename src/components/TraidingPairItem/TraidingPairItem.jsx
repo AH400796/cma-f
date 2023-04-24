@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SellBlock from 'components/SellBlock';
 import BuyBlock from 'components/BuyBlock';
 import InfoBlock from 'components/InfoBlock';
@@ -14,13 +14,35 @@ import {
   Star,
   StarButton,
 } from './TraidingPairItem.styled';
+import { excludePair } from 'services/API';
 
 export default function TraidingPairsItem({ data, showFixedArb }) {
   const [fixedArb, setFixedArb] = useState(false);
+  const [addExclusion, setAddExclusion] = useState([]);
+
+  useEffect(() => {
+    if (addExclusion.length === 0) {
+      return;
+    }
+    const [market, symbol] = addExclusion;
+    const exlude = async () => {
+      try {
+        await excludePair(market, symbol);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    exlude();
+  }, [addExclusion]);
 
   const handleClick = () => {
     setFixedArb(prevState => !prevState);
     // showFixedArb();
+  };
+  const handleAddExclusion = market => {
+    const name = data[0];
+    const symbol = name.replace(/\/USDT/g, '');
+    setAddExclusion([market, symbol]);
   };
 
   const name = data[0];
@@ -48,12 +70,14 @@ export default function TraidingPairsItem({ data, showFixedArb }) {
             marketplace={buyMarket}
             buyPrice={buyPrice}
             buyQuantity={buyQty}
+            exclusion={handleAddExclusion}
           />
           <SellBlock
             url={sellUrl}
             marketplace={sellMarket}
             sellPrice={sellPrice}
             sellQuantity={sellQty}
+            exclusion={handleAddExclusion}
           />
         </BlockWrapper>
         <InfoBlock

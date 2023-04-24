@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Wrapper,
   Link,
@@ -11,18 +12,22 @@ import {
   DataWrapper,
 } from './BuyBlock.styled';
 import greenArrow from '../../images/green_arrow.svg';
-// import { excludePair } from 'services/API';
 
 export default function BuyBlock({
   url,
   marketplace,
   buyPrice,
   buyQuantity,
-  fee,
+  exclusion,
 }) {
-  const handleClick = () => {};
+  const [exclused, setExclused] = useState(false);
+
+  const handleClick = () => {
+    setExclused(true);
+    exclusion(marketplace);
+  };
   return (
-    <Wrapper>
+    <Wrapper exclused={exclused}>
       <Delete onClick={handleClick}>{`\u2716`}</Delete>
       <Link href={url} target="_blank" rel="noopener noreferrer">
         <MarketWrapper>

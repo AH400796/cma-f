@@ -9,12 +9,17 @@ export const Wrapper = styled.div`
   width: 50%;
 
   border-radius: 5px;
+  box-shadow: 2px 2px 5px 0px #444343;
   background: linear-gradient(
     99.04deg,
     #fba4a4 -1.74%,
     rgba(255, 255, 255, 0.37) 116.29%
   );
-  box-shadow: 2px 2px 5px 0px #444343;
+  background: ${props => {
+    if (props.exclused) {
+      return '#3e3f3e';
+    }
+  }};
 `;
 
 export const Delete = styled.button`
@@ -29,7 +34,7 @@ export const Delete = styled.button`
   color: #ffffff;
   font-weight: 700;
 
-  background-color: #9c0202;
+  background-color: #da5151;
   border: none;
   border-radius: 5px 0 0 0;
   clip-path: polygon(0 0, 0% 100%, 100% 0);
