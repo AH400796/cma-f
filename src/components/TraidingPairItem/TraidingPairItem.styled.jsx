@@ -1,17 +1,21 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.li`
+export const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   padding: 0px 10px 10px;
-  margin-bottom: 20px;
 
   border-radius: 2px;
   background-color: #a7a7a7;
   box-shadow: 2px 2px 5px 0px #070707;
+`;
+
+export const ExtraWrapper = styled.li`
+  position: relative;
+  margin-bottom: 20px;
 `;
 
 export const ValueWrapper = styled.div`
