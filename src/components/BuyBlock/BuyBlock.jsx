@@ -26,6 +26,7 @@ export default function BuyBlock({
     setExclused(true);
     exclusion(marketplace);
   };
+
   return (
     <Wrapper exclused={exclused}>
       <Delete onClick={handleClick}>{`\u2716`}</Delete>

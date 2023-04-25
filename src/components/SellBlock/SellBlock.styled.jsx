@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   padding: 10px 15px;
   width: 50%;
 
-  border-radius: 5px;
+  border-radius: 2px;
   box-shadow: 2px 2px 5px 0px #444343;
   background: linear-gradient(
     99.04deg,
@@ -36,7 +36,7 @@ export const Delete = styled.button`
 
   background-color: #da5151;
   border: none;
-  border-radius: 5px 0 0 0;
+  border-radius: 2px 0 0 0;
   clip-path: polygon(0 0, 0% 100%, 100% 0);
 
   cursor: pointer;
@@ -80,7 +80,7 @@ export const DataWrapper = styled.div`
   background-color: #f5dada;
   margin-bottom: 10px;
   border: 1px dotted #797b7c;
-  border-radius: 5px;
+  border-radius: 2px;
 `;
 
 export const Data = styled.div`

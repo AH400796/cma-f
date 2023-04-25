@@ -9,7 +9,7 @@ export const Wrapper = styled.li`
   padding: 0px 10px 10px;
   margin-bottom: 20px;
 
-  border-radius: 10px;
+  border-radius: 2px;
   background-color: #a7a7a7;
   box-shadow: 2px 2px 5px 0px #070707;
 `;
@@ -41,12 +41,10 @@ export const Star = styled.img`
 `;
 
 export const Arbitrage = styled.span`
-  padding: 0 10px 10px;
+  padding: 0 10px;
   font-size: 28px;
   font-weight: bold;
-  color: ${props => {
-    return Number(props.children[0]) < 0 ? '#aa1111' : '#327c12';
-  }};
+  color: #327c12;
 `;
 
 export const BlockWrapper = styled.div`
@@ -55,8 +53,9 @@ export const BlockWrapper = styled.div`
   gap: 10px;
   margin-bottom: 10px;
 `;
+
 export const ArbWrapper = styled.div`
-  align-items: center;
   display: flex;
+  align-items: center;
   gap: 30px;
 `;

@@ -26,6 +26,7 @@ export default function SellBlock({
     setExclused(true);
     exclusion(marketplace);
   };
+
   return (
     <Wrapper exclused={exclused}>
       <Delete

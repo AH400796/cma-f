@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   padding: 10px 15px;
   width: 50%;
 
-  border-radius: 5px;
+  border-radius: 2px;
   background: linear-gradient(
     99.04deg,
     #c9f3c1 -1.74%,
@@ -36,7 +36,7 @@ export const Delete = styled.button`
 
   background-color: #da5151;
   border: none;
-  border-radius: 5px 0 0 0;
+  border-radius: 2px 0 0 0;
   clip-path: polygon(0 0, 0% 100%, 100% 0);
 
   cursor: pointer;
