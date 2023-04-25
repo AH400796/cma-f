@@ -1,3 +1,4 @@
+import { ReactComponent as CalcComp } from '../../images/calculator.svg';
 import styled from 'styled-components';
 import { Formik } from 'formik';
 
@@ -31,10 +32,13 @@ export const CalcButton = styled.button`
   padding: 10px;
 `;
 
-export const CalcIcon = styled.img`
+export const Calc = styled(CalcComp)`
   width: 20px;
   height: 20px;
-  fill: currentColor;
+  fill: ${p => (p.showCalc ? '#cf5923' : '#ffffff')};
+  &:hover {
+    fill: #cf5923;
+  }
 `;
 export const FormWrapper = styled.div`
   position: absolute;

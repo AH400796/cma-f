@@ -3,8 +3,6 @@ import SellBlock from 'components/SellBlock';
 import BuyBlock from 'components/BuyBlock';
 import InfoBlock from 'components/InfoBlock';
 import Calculator from 'components/Calculator';
-import star from '../../images/star.svg';
-import starWhite from '../../images/starWhite.svg';
 
 import {
   Wrapper,
@@ -14,7 +12,7 @@ import {
   ValueWrapper,
   Arbitrage,
   ArbWrapper,
-  Star,
+  StarIcon,
   StarButton,
 } from './TraidingPairItem.styled';
 import { excludePair } from 'services/API';
@@ -58,11 +56,7 @@ export default function TraidingPairsItem({ data, showFixedArb }) {
     <ExtraWrapper>
       <Wrapper>
         <StarButton title="Fixed arb" onClick={handleClick}>
-          {fixedArb ? (
-            <Star src={star} alt="star" />
-          ) : (
-            <Star src={starWhite} alt="star" />
-          )}
+          <StarIcon fixedArb={fixedArb} />
         </StarButton>
         <ArbWrapper>
           <PairName>{name}</PairName>

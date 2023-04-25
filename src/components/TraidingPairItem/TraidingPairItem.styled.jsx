@@ -1,3 +1,4 @@
+import { ReactComponent as Star } from '../../images/star.svg';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -39,9 +40,13 @@ export const StarButton = styled.button`
   padding: 10px;
 `;
 
-export const Star = styled.img`
+export const StarIcon = styled(Star)`
   width: 20px;
   height: 20px;
+  fill: ${p => (p.fixedArb ? '#cf5923' : '#ffffff')};
+  &:hover {
+    fill: #cf5923;
+  }
 `;
 
 export const Arbitrage = styled.span`

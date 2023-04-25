@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import calculator from '../../images/calculator.svg';
 
 import {
   Wrapper,
   Forma,
   FormWrapper,
   CalcButton,
-  CalcIcon,
+  Calc,
   ExtraWrapper,
 } from './Calculator.styled';
 
@@ -19,7 +18,7 @@ export default function Calculator({ data }) {
   return (
     <ExtraWrapper>
       <CalcButton title="Caclulator" onClick={handleClickCalc}>
-        <CalcIcon src={calculator} alt="calculator" />
+        <Calc showCalc={showCalc} />
       </CalcButton>
       <Wrapper>
         <FormWrapper showCalc={showCalc}>
