@@ -4,8 +4,6 @@ import {
   Fee,
   Calc,
   Wrapper,
-  Data,
-  FeeButton,
   DataFeeValue,
   DataWrapper,
   DataFeeWrapper,
@@ -26,14 +24,11 @@ export default function InfoBlock({
   buyQty,
   sellQty,
   sellPrice,
+  showInfo,
 }) {
-  const [showFee, setShowFee] = useState(false);
   const [coinAmount, setCoinAmount] = useState(0);
   const [feeAmount, setFeeAmount] = useState(0);
 
-  const handleClick = () => {
-    setShowFee(prevState => !prevState);
-  };
   const handleFeeClick = e => {
     setFeeAmount(e.target.innerText);
   };
@@ -53,12 +48,9 @@ export default function InfoBlock({
   ).toFixed(2);
 
   return (
-    <Wrapper>
-      <FeeButton onClick={handleClick}>
-        Additional and withdraw fee information
-      </FeeButton>
-      {showFee && (
-        <Data>
+    <>
+      {showInfo && (
+        <Wrapper>
           <Fee>
             <DataWrapper>
               Fee on {marketplace}: amount-coin [network] / (USDT) :
@@ -104,8 +96,8 @@ export default function InfoBlock({
               </AmountDataValue>
             </DataWrapper>
           </Calc>
-        </Data>
+        </Wrapper>
       )}
-    </Wrapper>
+    </>
   );
 }

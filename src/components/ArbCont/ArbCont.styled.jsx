@@ -28,7 +28,7 @@ export const PercentageWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #dfa810;
+  color: #aeb115;
 
   gap: 5px;
   width: 400px;

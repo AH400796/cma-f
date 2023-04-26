@@ -1,5 +1,6 @@
 import { ReactComponent as Star } from '../../images/star.svg';
 import { ReactComponent as CalcComp } from '../../images/calculator.svg';
+import { ReactComponent as Information } from '../../images/info.svg';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -28,7 +29,7 @@ export const PairName = styled.span`
   padding: 10px;
   font-size: 24px;
   font-weight: bold;
-  color: #cc3b0f;
+  color: #fd4108;
 `;
 
 export const StarButton = styled.button`
@@ -45,6 +46,25 @@ export const StarIcon = styled(Star)`
   width: 20px;
   height: 20px;
   fill: ${p => (p.fixedArb ? '#cf5923' : '#ffffff')};
+  &:hover {
+    fill: #cf5923;
+  }
+`;
+
+export const InfoButton = styled.button`
+  position: absolute;
+  top: 0;
+  right: 80px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 8px;
+`;
+
+export const Info = styled(Information)`
+  width: 25px;
+  height: 25px;
+  fill: ${p => (p.showInfo ? '#cf5923' : '#ffffff')};
   &:hover {
     fill: #cf5923;
   }
@@ -73,7 +93,7 @@ export const Arbitrage = styled.span`
   padding: 0 10px;
   font-size: 28px;
   font-weight: bold;
-  color: #327c12;
+  color: #5ec532;
 `;
 
 export const BlockWrapper = styled.div`

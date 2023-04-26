@@ -3,10 +3,9 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   position: relative;
   display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  gap: 10px;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
   padding: 5px 15px;
   width: 100%;
 
@@ -18,6 +17,13 @@ export const Wrapper = styled.div`
     rgba(255, 255, 255, 0.37) 116.29%
   );
   box-shadow: 2px 2px 5px 0px #444343;
+`;
+
+export const Data = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
 `;
 
 export const FeeButton = styled.button`
@@ -49,12 +55,6 @@ export const Calc = styled.div`
   width: 35%;
 `;
 
-export const Data = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  width: 100%;
-`;
 export const DataWrapper = styled.div`
   display: flex;
   justify-content: space-between;
