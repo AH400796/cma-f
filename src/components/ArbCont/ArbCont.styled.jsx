@@ -28,6 +28,8 @@ export const PercentageWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #dfa810;
+
   gap: 5px;
   width: 400px;
 `;
@@ -35,19 +37,17 @@ export const PercentageWrapper = styled.div`
 export const Percentage = styled.span`
   font-size: 28px;
   font-weight: 700;
-  color: #cf5923;
 `;
 
 export const PercentageText = styled.span`
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 700;
-  color: #cf5923;
 `;
 
 export const Time = styled.span`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
-  color: #adaaaa;
+  color: #ffffff;
 `;
 
 export const Input = styled.input`

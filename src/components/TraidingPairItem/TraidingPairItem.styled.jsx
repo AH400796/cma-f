@@ -1,4 +1,5 @@
 import { ReactComponent as Star } from '../../images/star.svg';
+import { ReactComponent as CalcComp } from '../../images/calculator.svg';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -10,7 +11,7 @@ export const Wrapper = styled.div`
   padding: 0px 10px 10px;
 
   border-radius: 2px;
-  background-color: #a7a7a7;
+  background-color: #414040;
   box-shadow: 2px 2px 5px 0px #070707;
 `;
 
@@ -44,6 +45,25 @@ export const StarIcon = styled(Star)`
   width: 20px;
   height: 20px;
   fill: ${p => (p.fixedArb ? '#cf5923' : '#ffffff')};
+  &:hover {
+    fill: #cf5923;
+  }
+`;
+export const CalcButton = styled.button`
+  position: absolute;
+
+  top: 0;
+  right: 40px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 10px;
+`;
+
+export const Calc = styled(CalcComp)`
+  width: 20px;
+  height: 20px;
+  fill: ${p => (p.showCalc ? '#cf5923' : '#ffffff')};
   &:hover {
     fill: #cf5923;
   }

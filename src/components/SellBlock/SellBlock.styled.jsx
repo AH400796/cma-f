@@ -20,6 +20,11 @@ export const Wrapper = styled.div`
       return '#3e3f3e';
     }
   }};
+  transform: scale(1);
+  transition: transform 250ms ease;
+  &:hover {
+    transform: scale(1.02);
+  }
 `;
 
 export const Delete = styled.button`
@@ -64,8 +69,8 @@ export const Marketplace = styled.span`
   font-size: 20px;
   font-weight: 900;
   padding: 3px 10px 5px;
-  color: #110264;
-  background-color: #e7e703;
+  color: #332e11;
+  text-shadow: 2px 2px 7px #e7e703;
 `;
 
 export const Arrow = styled.img`

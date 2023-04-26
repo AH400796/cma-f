@@ -14,12 +14,15 @@ import {
   ArbWrapper,
   StarIcon,
   StarButton,
+  CalcButton,
+  Calc,
 } from './TraidingPairItem.styled';
 import { excludePair } from 'services/API';
 
 export default function TraidingPairsItem({ data, showFixedArb }) {
   const [fixedArb, setFixedArb] = useState(false);
   const [addExclusion, setAddExclusion] = useState([]);
+  const [showCalc, setShowCalc] = useState(false);
 
   useEffect(() => {
     if (addExclusion.length === 0) {
@@ -47,6 +50,10 @@ export default function TraidingPairsItem({ data, showFixedArb }) {
     setAddExclusion([market, symbol]);
   };
 
+  const handleClickCalc = () => {
+    setShowCalc(prevState => !prevState);
+  };
+
   const name = data[0];
   const arbitrageValue = data[1];
 
@@ -55,6 +62,9 @@ export default function TraidingPairsItem({ data, showFixedArb }) {
   return (
     <ExtraWrapper>
       <Wrapper>
+        <CalcButton title="Caclulator" onClick={handleClickCalc}>
+          <Calc showCalc={showCalc} />
+        </CalcButton>
         <StarButton title="Fixed arb" onClick={handleClick}>
           <StarIcon fixedArb={fixedArb} />
         </StarButton>
@@ -90,7 +100,7 @@ export default function TraidingPairsItem({ data, showFixedArb }) {
           />
         </ValueWrapper>
       </Wrapper>
-      <Calculator data={data} />
+      <Calculator data={data} showCalc={showCalc} />
     </ExtraWrapper>
   );
 }
