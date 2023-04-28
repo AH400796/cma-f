@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  /* height: 100%; */
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -30,7 +29,6 @@ export const FeeButton = styled.button`
 export const Fee = styled.div`
   display: flex;
   justify-content: center;
-  /* height: 100%; */
   gap: 10px;
 `;
 
@@ -113,7 +111,6 @@ export const FeeBuyContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 60%;
-  /* height: 100%; */
   padding: 5px;
   border-radius: 5px;
   background-color: #6d6969;

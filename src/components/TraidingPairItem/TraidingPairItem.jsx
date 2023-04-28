@@ -22,7 +22,12 @@ import {
 } from './TraidingPairItem.styled';
 import { excludePair } from 'services/API';
 
-export default function TraidingPairsItem({ data, showfixedArb }) {
+export default function TraidingPairsItem({
+  data,
+  showfixedArb,
+  arbitrageValue,
+  arbPercentage,
+}) {
   const [addExclusion, setAddExclusion] = useState([]);
   const [fixedArb, setFixedArb] = useState(false);
   const [showCalc, setShowCalc] = useState(false);
@@ -54,7 +59,6 @@ export default function TraidingPairsItem({ data, showfixedArb }) {
 
   const handleClick = () => {
     setFixedArb(prevState => !prevState);
-    // showfixedArb();
   };
 
   const handleAddExclusion = market => {
@@ -76,50 +80,58 @@ export default function TraidingPairsItem({ data, showfixedArb }) {
   const { market: buyMarket, url: buyUrl, buyPrice, buyQty } = data[2];
   const { market: sellMarket, url: sellUrl, sellPrice, sellQty } = data[3];
   return (
-    <ExtraWrapper>
-      <Wrapper>
-        <FeeButton title="Fee" onClick={handleClickFee} showFee={showFee}>
-          <Fee />
-        </FeeButton>
-        <CalcButton
-          title="Caclulator"
-          onClick={handleClickCalc}
-          showCalc={showCalc}
-        >
-          <Calc />
-        </CalcButton>
-        <StarButton title="Fixed arb" onClick={handleClick} fixedArb={fixedArb}>
-          <StarIcon />
-        </StarButton>
-        <ArbWrapper>
-          <PairName>{name}</PairName>
-          <Arbitrage>
-            {arbValue}%
-            <ArrowWraper arbValue={arbValue} prevArbValue={prevArbValue}>
-              <ArbArrow />
-            </ArrowWraper>
-          </Arbitrage>
-        </ArbWrapper>
-        <ValueWrapper>
-          <BlockWrapper>
-            <BuyBlock
-              url={buyUrl}
-              marketplace={buyMarket}
-              buyPrice={buyPrice}
-              buyQuantity={buyQty}
-              exclusion={handleAddExclusion}
-            />
-            <SellBlock
-              url={sellUrl}
-              marketplace={sellMarket}
-              sellPrice={sellPrice}
-              sellQuantity={sellQty}
-              exclusion={handleAddExclusion}
-            />
-          </BlockWrapper>
-        </ValueWrapper>
-      </Wrapper>
-      <Calculator data={data} showCalc={showCalc} showFee={showFee} />
-    </ExtraWrapper>
+    <>
+      {(arbitrageValue > arbPercentage || fixedArb) && (
+        <ExtraWrapper>
+          <Wrapper>
+            <FeeButton title="Fee" onClick={handleClickFee} showFee={showFee}>
+              <Fee />
+            </FeeButton>
+            <CalcButton
+              title="Caclulator"
+              onClick={handleClickCalc}
+              showCalc={showCalc}
+            >
+              <Calc />
+            </CalcButton>
+            <StarButton
+              title="Fixed arb"
+              onClick={handleClick}
+              fixedArb={fixedArb}
+            >
+              <StarIcon />
+            </StarButton>
+            <ArbWrapper>
+              <PairName>{name}</PairName>
+              <Arbitrage>
+                {arbValue}%
+                <ArrowWraper arbValue={arbValue} prevArbValue={prevArbValue}>
+                  <ArbArrow />
+                </ArrowWraper>
+              </Arbitrage>
+            </ArbWrapper>
+            <ValueWrapper>
+              <BlockWrapper>
+                <BuyBlock
+                  url={buyUrl}
+                  marketplace={buyMarket}
+                  buyPrice={buyPrice}
+                  buyQuantity={buyQty}
+                  exclusion={handleAddExclusion}
+                />
+                <SellBlock
+                  url={sellUrl}
+                  marketplace={sellMarket}
+                  sellPrice={sellPrice}
+                  sellQuantity={sellQty}
+                  exclusion={handleAddExclusion}
+                />
+              </BlockWrapper>
+            </ValueWrapper>
+          </Wrapper>
+          <Calculator data={data} showCalc={showCalc} showFee={showFee} />
+        </ExtraWrapper>
+      )}
+    </>
   );
 }

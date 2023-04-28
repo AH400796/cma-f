@@ -63,9 +63,12 @@ export default function ArbCont() {
           const arbitrageValue = el[1];
 
           return (
-            arbitrageValue > arbPercentage && (
-              <TraidingPairItem key={key} data={el} />
-            )
+            <TraidingPairItem
+              key={key}
+              data={el}
+              arbitrageValue={arbitrageValue}
+              arbPercentage={arbPercentage}
+            />
           );
         })}
       </List>
