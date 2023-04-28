@@ -19,12 +19,7 @@ export const Wrapper = styled.div`
     if (props.exclused) {
       return '#3e3f3e';
     }
-  }};
-  transform: scale(1);
-  transition: transform 250ms ease;
-  &:hover {
-    transform: scale(1.02);
-  }
+  }};  
 `;
 
 export const Delete = styled.button`
@@ -60,7 +55,7 @@ export const Type = styled.span`
 export const MarketWrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   gap: 20px;
   margin-bottom: 20px;
 `;
@@ -71,10 +66,6 @@ export const Marketplace = styled.span`
   padding: 3px 10px 5px;
   color: #332e11;
   text-shadow: 2px 2px 7px #e7e703;
-`;
-
-export const Arrow = styled.img`
-  width: 30px;
 `;
 
 export const DataWrapper = styled.div`

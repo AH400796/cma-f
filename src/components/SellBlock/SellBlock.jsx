@@ -5,13 +5,11 @@ import {
   Link,
   Type,
   Marketplace,
-  Arrow,
   Data,
   DataValue,
   MarketWrapper,
   DataWrapper,
 } from './SellBlock.styled';
-import redArrow from '../../images/red_arrow.svg';
 
 export default function SellBlock({
   url,
@@ -37,9 +35,8 @@ export default function SellBlock({
       </Delete>
       <Link href={url} target="_blank" rel="noopener noreferrer">
         <MarketWrapper>
-          <Type>SELL</Type>
-          <Arrow src={redArrow} alt="sell arrow" />
-          <Marketplace>{marketplace}</Marketplace>
+          <Type> SELL</Type>
+          <Marketplace> {marketplace}</Marketplace>
         </MarketWrapper>
         <DataWrapper>
           <Data>price, (USDT):</Data>

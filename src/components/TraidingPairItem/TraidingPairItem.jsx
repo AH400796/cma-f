@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import SellBlock from 'components/SellBlock';
 import BuyBlock from 'components/BuyBlock';
-import InfoBlock from 'components/InfoBlock';
 import Calculator from 'components/Calculator';
 
 import {
@@ -15,17 +14,21 @@ import {
   StarIcon,
   StarButton,
   CalcButton,
-  InfoButton,
+  FeeButton,
   Calc,
-  Info,
+  Fee,
+  ArbArrow,
+  ArrowWraper,
 } from './TraidingPairItem.styled';
 import { excludePair } from 'services/API';
 
-export default function TraidingPairsItem({ data, showFixedArb }) {
+export default function TraidingPairsItem({ data, showfixedArb }) {
   const [addExclusion, setAddExclusion] = useState([]);
   const [fixedArb, setFixedArb] = useState(false);
   const [showCalc, setShowCalc] = useState(false);
-  const [showInfo, setShowInfo] = useState(false);
+  const [showFee, setShowFee] = useState(false);
+  const [arbValue, setArbValue] = useState(0);
+  const [prevArbValue, setPrevArbValue] = useState(0);
 
   useEffect(() => {
     if (addExclusion.length === 0) {
@@ -42,9 +45,16 @@ export default function TraidingPairsItem({ data, showFixedArb }) {
     exlude();
   }, [addExclusion]);
 
+  useEffect(() => {
+    if (arbValue !== data[1]) {
+      setPrevArbValue(arbValue);
+      setArbValue(data[1]);
+    }
+  }, [arbValue, data]);
+
   const handleClick = () => {
     setFixedArb(prevState => !prevState);
-    // showFixedArb();
+    // showfixedArb();
   };
 
   const handleAddExclusion = market => {
@@ -57,30 +67,38 @@ export default function TraidingPairsItem({ data, showFixedArb }) {
     setShowCalc(prevState => !prevState);
   };
 
-  const handleClickInfo = () => {
-    setShowInfo(prevState => !prevState);
+  const handleClickFee = () => {
+    setShowFee(prevState => !prevState);
   };
 
   const name = data[0];
-  const arbitrageValue = data[1];
 
-  const { market: buyMarket, url: buyUrl, buyPrice, buyQty, fee } = data[2];
+  const { market: buyMarket, url: buyUrl, buyPrice, buyQty } = data[2];
   const { market: sellMarket, url: sellUrl, sellPrice, sellQty } = data[3];
   return (
     <ExtraWrapper>
       <Wrapper>
-        <InfoButton title="Info" onClick={handleClickInfo}>
-          <Info showInfo={showInfo} />
-        </InfoButton>
-        <CalcButton title="Caclulator" onClick={handleClickCalc}>
-          <Calc showCalc={showCalc} />
+        <FeeButton title="Fee" onClick={handleClickFee} showFee={showFee}>
+          <Fee />
+        </FeeButton>
+        <CalcButton
+          title="Caclulator"
+          onClick={handleClickCalc}
+          showCalc={showCalc}
+        >
+          <Calc />
         </CalcButton>
-        <StarButton title="Fixed arb" onClick={handleClick}>
-          <StarIcon fixedArb={fixedArb} />
+        <StarButton title="Fixed arb" onClick={handleClick} fixedArb={fixedArb}>
+          <StarIcon />
         </StarButton>
         <ArbWrapper>
           <PairName>{name}</PairName>
-          <Arbitrage>{arbitrageValue}%</Arbitrage>
+          <Arbitrage>
+            {arbValue}%
+            <ArrowWraper arbValue={arbValue} prevArbValue={prevArbValue}>
+              <ArbArrow />
+            </ArrowWraper>
+          </Arbitrage>
         </ArbWrapper>
         <ValueWrapper>
           <BlockWrapper>
@@ -99,19 +117,9 @@ export default function TraidingPairsItem({ data, showFixedArb }) {
               exclusion={handleAddExclusion}
             />
           </BlockWrapper>
-          <InfoBlock
-            fee={fee}
-            marketplace={buyMarket}
-            buyPrice={buyPrice}
-            name={name}
-            buyQty={buyQty}
-            sellQty={sellQty}
-            sellPrice={sellPrice}
-            showInfo={showInfo}
-          />
         </ValueWrapper>
       </Wrapper>
-      <Calculator data={data} showCalc={showCalc} />
+      <Calculator data={data} showCalc={showCalc} showFee={showFee} />
     </ExtraWrapper>
   );
 }

@@ -14,7 +14,7 @@ import {
 
 export default function ArbCont() {
   const [dataList, setDataList] = useState([]);
-  const [arbPercentage, setArbPercentage] = useState(2);
+  const [arbPercentage, setArbPercentage] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,9 +33,15 @@ export default function ArbCont() {
   const handleChange = event => {
     setArbPercentage(event.target.value);
   };
-  const { updateTime = '-- / -- / --', sortData } = dataList;
-  const setupRange = [0, 20, 0.1, 'arbpercentage'];
 
+  const setupRange = [0, 20, 0.1, 'arbpercentage'];
+  const { date, sortData } = dataList;
+
+  const updateTime = date
+    ? new Date(date).toLocaleDateString() +
+      ' / ' +
+      new Date(date).toLocaleTimeString()
+    : '-- / -- / --';
   return (
     <Wrapper>
       <InfoWrapper>

@@ -4,14 +4,12 @@ import {
   Link,
   Type,
   Marketplace,
-  Arrow,
   Delete,
   Data,
   DataValue,
   MarketWrapper,
   DataWrapper,
 } from './BuyBlock.styled';
-import greenArrow from '../../images/green_arrow.svg';
 
 export default function BuyBlock({
   url,
@@ -33,7 +31,6 @@ export default function BuyBlock({
       <Link href={url} target="_blank" rel="noopener noreferrer">
         <MarketWrapper>
           <Type>BUY</Type>
-          <Arrow src={greenArrow} alt="sell arrow" />
           <Marketplace>{marketplace}</Marketplace>
         </MarketWrapper>
         <DataWrapper>

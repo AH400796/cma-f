@@ -1,17 +1,18 @@
 import { useState } from 'react';
+import FeeBlock from 'components/FeeBlock';
 
 import {
   Wrapper,
   FormWrapper,
+  FeeFormWrapper,
   Input,
   InputLabel,
   SellWrapper,
   BuyWrapper,
   BlockWrapper,
-  SellPrice,
-  BuyPrice,
+  SellPriceInput,
+  BuyPriceInput,
   CalcText,
-  Container,
   ResultText,
   PointerText,
   FeeWrapper,
@@ -19,10 +20,37 @@ import {
   Form,
 } from './Calculator.styled';
 
-export default function Calculator({ data, showCalc }) {
-  const [sellAmount, setSellAmount] = useState('');
-  const [buyAmount, setBuyAmount] = useState('');
-  const [feeAmount, setFeeAmount] = useState('');
+export default function Calculator({ data, showCalc, showFee }) {
+  const [sellPrice, setSellPrice] = useState(() => {
+    return data[3].sellPrice;
+  });
+  const [buyPrice, setBuyPrice] = useState(() => {
+    return data[2].buyPrice;
+  });
+  const [sellAmount, setSellAmount] = useState(() => {
+    return data[3].sellQty - data[2].buyQty > 0
+      ? data[2].buyQty
+      : data[3].sellQty;
+  });
+  const [buyAmount, setBuyAmount] = useState(() => {
+    return data[3].sellQty - data[2].buyQty > 0
+      ? data[2].buyQty
+      : data[3].sellQty;
+  });
+  const [feeAmount, setFeeAmount] = useState(() => {
+    const arrFee = data[2].fee.map(el =>
+      data[2].url.includes(el[1])
+        ? Number((data[2].buyPrice * el[0]).toFixed(2))
+        : ''
+    );
+    const minFee =
+      arrFee.length === 0
+        ? 0
+        : arrFee.reduce((min, el) => {
+            return min > el ? el : min;
+          });
+    return minFee;
+  });
 
   const handleSellAmount = e => {
     setSellAmount(e.target.value);
@@ -33,9 +61,15 @@ export default function Calculator({ data, showCalc }) {
   const handleFeeAmount = e => {
     setFeeAmount(e.target.value);
   };
+  const handleSellPrice = e => {
+    setSellPrice(e.target.value);
+  };
+  const handleBuyPrice = e => {
+    setBuyPrice(e.target.value);
+  };
 
-  const { market: buyMarket, buyPrice } = data[2];
-  const { market: sellMarket, sellPrice } = data[3];
+  const { market: buyMarket } = data[2];
+  const { market: sellMarket } = data[3];
   const sellResult = Number((Number(sellAmount) * sellPrice).toFixed(2));
   const buyResult = Number((Number(buyAmount) * buyPrice).toFixed(2));
   const result = Number(
@@ -49,17 +83,23 @@ export default function Calculator({ data, showCalc }) {
       (Number(buyAmount) * buyPrice)
     ).toFixed(2)
   );
-  const arbLevel =
-    Number.isNaN(arb) || arb === Infinity || arb === -Infinity ? data[1] : arb;
+
   return (
     <Wrapper>
-      <FormWrapper showCalc={showCalc}>
-        <Form autoComplete="off">
-          <Container>
+      <FormWrapper showCalc={showCalc} showFee={showFee}>
+        {showCalc && (
+          <Form autoComplete="off" showCalc={showCalc}>
             <SellWrapper>
               <BlockWrapper>
                 <CalcText>SELL on {sellMarket}</CalcText>
-                <SellPrice>{sellPrice}</SellPrice>
+                <InputLabel>
+                  <SellPriceInput
+                    type="number"
+                    name="sellPrice"
+                    value={sellPrice}
+                    onChange={handleSellPrice}
+                  />
+                </InputLabel>
               </BlockWrapper>
               <BlockWrapper>
                 <PointerText></PointerText>
@@ -88,7 +128,14 @@ export default function Calculator({ data, showCalc }) {
             <BuyWrapper>
               <BlockWrapper>
                 <CalcText>BUY on {buyMarket}</CalcText>
-                <BuyPrice>{buyPrice}</BuyPrice>
+                <InputLabel>
+                  <BuyPriceInput
+                    type="number"
+                    name="buyPrice"
+                    value={buyPrice}
+                    onChange={handleBuyPrice}
+                  />
+                </InputLabel>
               </BlockWrapper>
               <BlockWrapper>
                 <PointerText></PointerText>
@@ -132,7 +179,7 @@ export default function Calculator({ data, showCalc }) {
               </BlockWrapper>
               <BlockWrapper>
                 <CalcText>Relevant level</CalcText>
-                <ArbLevel>{arbLevel}%</ArbLevel>
+                <ArbLevel>{arb}%</ArbLevel>
               </BlockWrapper>
               <BlockWrapper>
                 <PointerText></PointerText>
@@ -143,9 +190,12 @@ export default function Calculator({ data, showCalc }) {
                 <ResultText>{result}</ResultText>
               </BlockWrapper>
             </FeeWrapper>
-          </Container>
-        </Form>
+          </Form>
+        )}
       </FormWrapper>
+      <FeeFormWrapper showCalc={showCalc} showFee={showFee}>
+        {(showFee || showCalc) && <FeeBlock data={data} showCalc={showCalc} />}
+      </FeeFormWrapper>
     </Wrapper>
   );
 }

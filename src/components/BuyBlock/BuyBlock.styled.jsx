@@ -61,7 +61,7 @@ export const Type = styled.span`
 export const MarketWrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   gap: 20px;
   margin-bottom: 20px;
 `;

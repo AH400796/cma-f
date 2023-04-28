@@ -1,13 +1,14 @@
 import { ReactComponent as Star } from '../../images/star.svg';
 import { ReactComponent as CalcComp } from '../../images/calculator.svg';
 import { ReactComponent as Information } from '../../images/info.svg';
+import { ReactComponent as Arrow } from '../../images/arrow.svg';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   padding: 0px 10px 10px;
 
@@ -31,6 +32,51 @@ export const PairName = styled.span`
   font-weight: bold;
   color: #fd4108;
 `;
+export const ArbWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  width: 80%;
+  padding: 0 20px;
+`;
+
+export const Arbitrage = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #5ec532;
+`;
+
+export const ArrowWraper = styled.span`
+  transform: rotate(180deg);
+  color: ${props => {
+    const { arbValue, prevArbValue } = props;
+    if (arbValue > prevArbValue) {
+      return '#2bbd18';
+    } else if (arbValue < prevArbValue) {
+      return '#e72727';
+    }
+  }};
+  transform: ${props => {
+    const { arbValue, prevArbValue } = props;
+    if (arbValue > prevArbValue) {
+      return 'rotate(-90deg)';
+    } else if (arbValue < prevArbValue) {
+      return 'rotate(90deg)';
+    }
+  }};
+`;
+
+export const ArbArrow = styled(Arrow)`
+  width: 20px;
+  height: 20px;
+
+  fill: currentColor;
+`;
 
 export const StarButton = styled.button`
   position: absolute;
@@ -40,18 +86,21 @@ export const StarButton = styled.button`
   background-color: transparent;
   cursor: pointer;
   padding: 10px;
+  color: ${props => (props.fixedArb ? '#cf5923' : '#ffffff')};
 `;
 
 export const StarIcon = styled(Star)`
   width: 20px;
   height: 20px;
-  fill: ${p => (p.fixedArb ? '#cf5923' : '#ffffff')};
+  transform: scale(1);
+  transition: transform 250ms ease;
+  fill: currentColor;
   &:hover {
-    fill: #cf5923;
+    transform: scale(1.3);
   }
 `;
 
-export const InfoButton = styled.button`
+export const FeeButton = styled.button`
   position: absolute;
   top: 0;
   right: 80px;
@@ -59,14 +108,17 @@ export const InfoButton = styled.button`
   background-color: transparent;
   cursor: pointer;
   padding: 8px;
+  color: ${props => (props.showFee ? '#cf5923' : '#ffffff')};
 `;
 
-export const Info = styled(Information)`
+export const Fee = styled(Information)`
   width: 25px;
   height: 25px;
-  fill: ${p => (p.showInfo ? '#cf5923' : '#ffffff')};
+  transform: scale(1);
+  transition: transform 250ms ease;
+  fill: currentColor;
   &:hover {
-    fill: #cf5923;
+    transform: scale(1.3);
   }
 `;
 export const CalcButton = styled.button`
@@ -78,22 +130,18 @@ export const CalcButton = styled.button`
   background-color: transparent;
   cursor: pointer;
   padding: 10px;
+  color: ${props => (props.showCalc ? '#cf5923' : '#ffffff')};
 `;
 
 export const Calc = styled(CalcComp)`
   width: 20px;
   height: 20px;
-  fill: ${p => (p.showCalc ? '#cf5923' : '#ffffff')};
+  transform: scale(1);
+  transition: transform 250ms ease;
+  fill: currentColor;
   &:hover {
-    fill: #cf5923;
+    transform: scale(1.3);
   }
-`;
-
-export const Arbitrage = styled.span`
-  padding: 0 10px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #5ec532;
 `;
 
 export const BlockWrapper = styled.div`
@@ -101,10 +149,4 @@ export const BlockWrapper = styled.div`
 
   gap: 10px;
   margin-bottom: 10px;
-`;
-
-export const ArbWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 30px;
 `;
