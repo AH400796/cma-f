@@ -26,7 +26,7 @@ export default function FeeBlock({ data, showCalc, showFee }) {
       </FeeTitle>
       <Fee>
         <FeeBuyContainer>
-          <DataWrapper>on {buyMarket}:</DataWrapper>
+          <DataWrapper>{buyMarket}:</DataWrapper>
           <FeeList>
             {buyFee?.map(el => {
               const [amount, coin, , network] = el;
@@ -49,7 +49,7 @@ export default function FeeBlock({ data, showCalc, showFee }) {
           </FeeList>
         </FeeBuyContainer>
         <FeeSellContainer>
-          <DataWrapper>on {sellMarket}:</DataWrapper>
+          <DataWrapper>{sellMarket}:</DataWrapper>
           <SellFeeList>
             {sellFee?.map(el => {
               const [, , , network] = el;
