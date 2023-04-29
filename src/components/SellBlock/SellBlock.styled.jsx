@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 10px 15px;
-  width: 50%;
+  padding: 5px 15px;
+  width: 100%;
 
   border-radius: 2px;
   box-shadow: 2px 2px 5px 0px #444343;
@@ -19,9 +19,14 @@ export const Wrapper = styled.div`
     if (props.exclused) {
       return '#3e3f3e';
     }
-  }};  
+  }};
 `;
-
+export const ExtraWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+`;
 export const Delete = styled.button`
   position: absolute;
   top: 0;
@@ -45,7 +50,21 @@ export const Delete = styled.button`
 export const Link = styled.a`
   text-decoration: none;
 `;
-
+export const WithdrLink = styled.a`
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  padding: 3px;
+  font-weight: 900;
+  color: #797b7c;
+`;
+export const DepCont = styled.div`
+  width: 120px;
+  padding: 3px 10px;
+  text-align: center;
+  border: 3px solid #797b7c;
+  border-radius: 10px;
+`;
 export const Type = styled.span`
   font-size: 20px;
   font-weight: 700;
@@ -57,7 +76,7 @@ export const MarketWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `;
 
 export const Marketplace = styled.span`
@@ -74,7 +93,7 @@ export const DataWrapper = styled.div`
   gap: 20px;
   padding: 2px 5px;
   background-color: #f5dada;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   border: 1px dotted #797b7c;
   border-radius: 2px;
 `;

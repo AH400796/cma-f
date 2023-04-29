@@ -77,8 +77,20 @@ export default function TraidingPairsItem({
 
   const name = data[0];
 
-  const { market: buyMarket, url: buyUrl, buyPrice, buyQty } = data[2];
-  const { market: sellMarket, url: sellUrl, sellPrice, sellQty } = data[3];
+  const {
+    market: buyMarket,
+    url: buyUrl,
+    withdrlUrl: buyWithdr,
+    buyPrice,
+    buyQty,
+  } = data[2];
+  const {
+    market: sellMarket,
+    url: sellUrl,
+    depUrl: sellDep,
+    sellPrice,
+    sellQty,
+  } = data[3];
   return (
     <>
       {(arbitrageValue > arbPercentage || fixedArb) && (
@@ -118,6 +130,7 @@ export default function TraidingPairsItem({
                   buyPrice={buyPrice}
                   buyQuantity={buyQty}
                   exclusion={handleAddExclusion}
+                  buyWithdr={buyWithdr}
                 />
                 <SellBlock
                   url={sellUrl}
@@ -125,6 +138,7 @@ export default function TraidingPairsItem({
                   sellPrice={sellPrice}
                   sellQuantity={sellQty}
                   exclusion={handleAddExclusion}
+                  sellDep={sellDep}
                 />
               </BlockWrapper>
             </ValueWrapper>

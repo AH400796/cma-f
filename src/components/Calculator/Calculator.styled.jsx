@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   top: -5px;
   left: 100%;
   width: 65%;
-  height: 1500px;
+  height: 500px;
   background-color: transparent;
   overflow: hidden;
 `;
@@ -14,7 +14,7 @@ export const FormWrapper = styled.div`
   position: absolute;
   top: 5px;
   width: 96%;
-  height: 208px;
+  height: 224px;
   padding: 10px;
   background-color: #414040;
   border-radius: 2px;
@@ -30,7 +30,7 @@ export const FeeFormWrapper = styled.div`
   top: 5px;
   width: 96%;
 
-  height: 208px;
+  height: 224px;
   padding: 10px;
   background-color: #414040;
   border-radius: 2px;

@@ -75,6 +75,7 @@ export const FeeValueWrap = styled.div`
   align-items: center;
   gap: 10px;
   padding: 2px 5px;
+  width: 100%;
   border-radius: 2px;
   background-color: #b1e7ee;
   border: 1px dotted #797b7c;

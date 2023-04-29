@@ -146,7 +146,5 @@ export const Calc = styled(CalcComp)`
 
 export const BlockWrapper = styled.div`
   display: flex;
-
   gap: 10px;
-  margin-bottom: 10px;
 `;
