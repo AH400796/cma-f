@@ -49,11 +49,7 @@ export default function BuyBlock({
         </Link>
       </Wrapper>
       <Wrapper>
-        <WithdrLink
-          href={{ buyWithdr }}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <WithdrLink href={buyWithdr} target="_blank" rel="noopener noreferrer">
           <WithdrCont>Withdraw</WithdrCont>
         </WithdrLink>
       </Wrapper>
