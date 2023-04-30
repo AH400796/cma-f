@@ -43,7 +43,7 @@ export default function BuyBlock({
             <DataValue>{buyPrice}</DataValue>
           </DataWrapper>
           <DataWrapper>
-            <Data>quantity:</Data>
+            <Data>amount:</Data>
             <DataValue>{buyQuantity}</DataValue>
           </DataWrapper>
         </Link>

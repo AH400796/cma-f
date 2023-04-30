@@ -29,7 +29,7 @@ export default function FeeBlock({ data, showCalc, showFee }) {
           <DataWrapper>{buyMarket}:</DataWrapper>
           <FeeList>
             {buyFee?.map(el => {
-              const [amount, coin, , network] = el;
+              const [amount, coin, network] = el;
               const equiv = pairName.includes(coin)
                 ? Number((buyPrice * amount).toFixed(2))
                 : '???';
@@ -52,7 +52,7 @@ export default function FeeBlock({ data, showCalc, showFee }) {
           <DataWrapper>{sellMarket}:</DataWrapper>
           <SellFeeList>
             {sellFee?.map(el => {
-              const [, , , network] = el;
+              const [, , network] = el;
               return (
                 <FeeListItem key={network}>
                   <FeeValueWrap>

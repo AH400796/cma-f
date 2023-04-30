@@ -48,7 +48,7 @@ export default function SellBlock({
             <DataValue>{sellPrice}</DataValue>
           </DataWrapper>
           <DataWrapper>
-            <Data>quantity:</Data>
+            <Data>amount:</Data>
             <DataValue>{sellQuantity}</DataValue>
           </DataWrapper>
         </Link>
