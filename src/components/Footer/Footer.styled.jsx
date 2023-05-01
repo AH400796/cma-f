@@ -58,7 +58,7 @@ export const TextWrapper = styled.div`
   padding: 15px;
   border: 1px dotted #dba68d;
   border-radius: 10px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 `;
 
 export const Wrapper = styled.div`
