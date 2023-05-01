@@ -11,6 +11,7 @@ import {
   Percentage,
   PercentageWrapper,
   PercentageText,
+  TimeWrapper,
 } from './ArbCont.styled';
 
 export default function ArbCont() {
@@ -50,7 +51,10 @@ export default function ArbCont() {
     <ExtraWrapper>
       <Wrapper>
         <InfoWrapper>
-          <Time>Last update: {updateTime}</Time>
+          <TimeWrapper>
+            <Time>Last data update:</Time>
+            <Time>{updateTime}</Time>
+          </TimeWrapper>
           <PercentageWrapper>
             <PercentageText>
               Minimum arbitrage level: <Percentage>{arbPercentage}</Percentage>%

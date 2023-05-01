@@ -16,6 +16,12 @@ export const InfoWrapper = styled.div`
   gap: 40px;
   padding-bottom: 20px;
 `;
+export const TimeWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+`;
 
 export const List = styled.ul`
   display: flex;
@@ -44,7 +50,7 @@ export const Percentage = styled.span`
 `;
 
 export const PercentageText = styled.span`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
 `;
 

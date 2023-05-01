@@ -139,7 +139,7 @@ export const DataWrapper = styled.div`
   text-align: center;
   gap: 10px;
   padding: 5px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   border-radius: 5px;
   color: #a7a4a4;

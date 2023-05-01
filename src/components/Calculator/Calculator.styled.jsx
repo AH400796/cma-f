@@ -59,7 +59,7 @@ export const CalcText = styled.span`
   align-items: center;
   min-width: 100px;
   height: 20px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   color: #afafaa;
 `;
@@ -70,7 +70,7 @@ export const PointerText = styled.span`
   align-items: center;
   width: 10px;
   height: 20px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   color: #afafaa;
 `;
@@ -81,7 +81,7 @@ export const ResultText = styled.span`
   align-items: center;
   width: 100%;
   height: 21px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 900;
   border-radius: 5px;
   background-color: #a7a4a4;
@@ -122,7 +122,7 @@ export const ArbLevel = styled.span`
   align-items: center;
   min-width: 100px;
   height: 20px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 900;
   color: #5ec532;
 `;
@@ -141,6 +141,7 @@ export const Input = styled.input`
   height: 20px;
   padding: 1px 5px 2px 5px;
   text-align: center;
+  font-size: 14px;
   font-weight: 900;
   outline: none;
   border: none;
@@ -164,6 +165,7 @@ export const SellPriceInput = styled.input`
   height: 20px;
   padding: 1px 5px 2px 5px;
   text-align: center;
+  font-size: 14px;
   font-weight: 900;
   color: #e04747;
   outline: none;
@@ -187,6 +189,7 @@ export const BuyPriceInput = styled.input`
   height: 20px;
   padding: 1px 5px 2px 5px;
   text-align: center;
+  font-size: 14px;
   font-weight: 900;
   color: #0a8611;
   outline: none;

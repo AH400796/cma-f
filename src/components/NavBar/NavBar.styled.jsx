@@ -9,10 +9,24 @@ export const NavWrapper = styled.nav`
 `;
 
 export const Title = styled.span`
-  display: block;
-  text-align: center;
+  display: flex;
+  gap: 0;
+  height: 45px;
   font-size: 24px;
   line-height: 0.9;
+`;
+export const Crypto = styled.span`
+  align-self: flex-start;
+  border-bottom: 2px solid #f85b12;
+`;
+export const Markets = styled.span`
+  align-self: center;
+  border-bottom: 2px solid #f85b12;
+`;
+
+export const Arbitrage = styled.span`
+  align-self: flex-end;
+  border-bottom: 2px solid #f85b12;
 `;
 
 export const StyledLink = styled(NavLink)`
