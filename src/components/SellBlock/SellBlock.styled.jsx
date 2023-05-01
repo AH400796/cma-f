@@ -14,12 +14,7 @@ export const Wrapper = styled.div`
     99.04deg,
     #fba4a4 -1.74%,
     rgba(255, 255, 255, 0.37) 116.29%
-  );
-  background: ${props => {
-    if (props.exclused) {
-      return '#3e3f3e';
-    }
-  }};
+  );  
 `;
 export const ExtraWrapper = styled.div`
   display: flex;

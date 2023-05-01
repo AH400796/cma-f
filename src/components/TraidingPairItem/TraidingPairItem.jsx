@@ -76,6 +76,7 @@ export default function TraidingPairsItem({
   };
 
   const name = data[0];
+  const isExclused = addExclusion.length !== 0;
 
   const {
     market: buyMarket,
@@ -93,7 +94,7 @@ export default function TraidingPairsItem({
   } = data[3];
   return (
     <>
-      {(arbitrageValue > arbPercentage || fixedArb) && (
+      {!isExclused && (arbitrageValue > arbPercentage || fixedArb) && (
         <ExtraWrapper>
           <Wrapper>
             <FeeButton title="Fee" onClick={handleClickFee} showFee={showFee}>

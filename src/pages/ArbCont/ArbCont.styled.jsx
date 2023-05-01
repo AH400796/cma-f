@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
+export const ExtraWrapper = styled.div`
+  width: 100%;
+`;
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 20px 50px;
+  padding: 20px 0;
 `;
 
 export const InfoWrapper = styled.div`
@@ -28,26 +32,26 @@ export const PercentageWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #aeb115;
+  color: #c4c4c4;
 
   gap: 5px;
-  width: 400px;
+  width: 320px;
 `;
 
 export const Percentage = styled.span`
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
 `;
 
 export const PercentageText = styled.span`
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
 `;
 
 export const Time = styled.span`
   font-size: 16px;
   font-weight: 700;
-  color: #ffffff;
+  color: #c4c4c4;
 `;
 
 export const Input = styled.input`

@@ -9,6 +9,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(117, 116, 116);
 }
+html,
+body,
+#root {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
