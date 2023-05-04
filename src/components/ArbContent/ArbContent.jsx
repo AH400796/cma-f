@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getData } from '../../services/API';
-import TraidingPairItem from '../../components/TraidingPairItem';
-import RangeInput from '../../components/RangeInput';
+import TraidingPairItem from '../TraidingPairItem';
+import RangeInput from '../RangeInput';
 import {
   List,
   Wrapper,
@@ -12,7 +12,7 @@ import {
   PercentageWrapper,
   PercentageText,
   TimeWrapper,
-} from './ArbCont.styled';
+} from './ArbContent.styled';
 
 export default function ArbCont() {
   const [dataList, setDataList] = useState([]);

@@ -77,7 +77,7 @@ export const FeeValueWrap = styled.div`
   padding: 2px 5px;
   width: 100%;
   border-radius: 2px;
-  background-color: #b1e7ee;
+  background-color: #9fdba7;
   border: 1px dotted #797b7c;
 `;
 export const EqFeeWrapper = styled.button`

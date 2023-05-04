@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { AuthContext } from '../App/App';
 import {
   StyledLink,
   NavWrapper,
@@ -7,9 +9,12 @@ import {
   Arbitrage,
 } from './NavBar.styled';
 
-import Navigation from 'components/Navigation';
+import Authentication from 'components/Authentication';
+import UserMenu from 'components/UserMenu';
 
 export default function NavBar({ screenWidth }) {
+  const { isLoggedIn, userEmail } = useContext(AuthContext);
+
   return (
     <NavWrapper>
       <StyledLink to="/">
@@ -19,7 +24,8 @@ export default function NavBar({ screenWidth }) {
           <Arbitrage>Arbitrage</Arbitrage>
         </Title>
       </StyledLink>
-      <Navigation />
+      {!isLoggedIn && <Authentication />}
+      {isLoggedIn && <UserMenu userEmail={userEmail} />}
     </NavWrapper>
   );
 }

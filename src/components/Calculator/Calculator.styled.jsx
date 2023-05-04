@@ -16,7 +16,12 @@ export const FormWrapper = styled.div`
   width: 96%;
   height: 224px;
   padding: 10px;
-  background-color: #414040;
+  background: linear-gradient(
+    274.25deg,
+    #453432 23.51%,
+    rgba(69, 52, 50, 0.83) 50.89%,
+    rgba(117, 104, 77, 0.81) 308.27%
+  );
   border-radius: 2px;
   box-shadow: 2px 2px 5px 0px #070707;
   right: 110%;
@@ -32,7 +37,12 @@ export const FeeFormWrapper = styled.div`
 
   height: 224px;
   padding: 10px;
-  background-color: #414040;
+  background: linear-gradient(
+    274.25deg,
+    #453432 23.51%,
+    rgba(69, 52, 50, 0.83) 50.89%,
+    rgba(117, 104, 77, 0.81) 308.27%
+  );
   border-radius: 2px;
   box-shadow: 2px 2px 5px 0px #070707;
   right: 110%;

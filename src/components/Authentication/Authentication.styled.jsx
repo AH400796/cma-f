@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const NavLinks = styled.div`
+export const AuthWrapper = styled.div`
   display: flex;
-  gap: 50px;
+  gap: 20px;
 
   justify-content: space-between;
   align-items: center;
@@ -11,8 +11,8 @@ export const NavLinks = styled.div`
 
 export const StyledLink = styled(NavLink)`
   font-size: 16px;
-  padding: 8px;
-  border-radius: 4px;
+  padding: 15px;
+
   text-align: left;
   text-decoration: none;
   color: #f85b12;

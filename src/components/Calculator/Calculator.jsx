@@ -178,7 +178,7 @@ export default function Calculator({ data, showCalc, showFee }) {
                 <PointerText></PointerText>
               </BlockWrapper>
               <BlockWrapper>
-                <CalcText>Relevant level</CalcText>
+                <CalcText>Arb., %</CalcText>
                 <ArbLevel>{arb}%</ArbLevel>
               </BlockWrapper>
               <BlockWrapper>

@@ -23,7 +23,7 @@ export default function Footer() {
           <TextTitle>General Terms and Conditions:</TextTitle>
           <Text>
             1. The CMA application (Crypto Markets Arbitrage) was created to
-            find arbitrage situations on spot trading of well-known (and not so)
+            find arbitrage cases on spot trading of well-known (and not so)
             cryptocurrency exchanges.
           </Text>
           <Text>
@@ -61,11 +61,11 @@ export default function Footer() {
               <IconWrapper>
                 <IoMdMail size={20} color={'#f85b12'} />
               </IconWrapper>
-              Email: a.hokhman@gmail.com
+              a.hokhman@gmail.com
             </Link>
           </Wrapper>
           <FooterText>
-            © 2023, Created by Andrii Hokhman. All rights reserved.
+            © 2023. Created by Andrii Hokhman. All rights reserved.
           </FooterText>
         </FooterContacts>
       </Container>

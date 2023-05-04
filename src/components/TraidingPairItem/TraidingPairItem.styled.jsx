@@ -13,7 +13,12 @@ export const Wrapper = styled.div`
   padding: 0px 10px 10px;
 
   border-radius: 2px;
-  background-color: #414040;
+  background: linear-gradient(
+    274.25deg,
+    #453432 23.51%,
+    rgba(69, 52, 50, 0.83) 50.89%,
+    rgba(117, 104, 77, 0.81) 308.27%
+  );
   box-shadow: 2px 2px 5px 0px #070707;
 `;
 
