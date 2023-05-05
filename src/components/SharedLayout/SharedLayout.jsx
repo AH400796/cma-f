@@ -15,7 +15,7 @@ export default function SharedLayout() {
         <HeaderSection />
         <MainSection>
           <Container>
-            <Suspense fallback={<Skeleton />}>
+            <Suspense fallback={<Skeleton width={'100%'} height={'100%'} />}>
               <Outlet />
             </Suspense>
           </Container>

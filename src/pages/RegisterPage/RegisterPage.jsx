@@ -1,19 +1,16 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../components/App/App';
 
 import SignUpForm from 'components/SignUpForm';
 import VerifyForm from 'components/VerifyForm';
 
 export default function RegisterPage() {
-  const [email, setEmail] = useState();
-  const [verify, setVerify] = useState(false);
-  const handleRegister = data => {
-    setVerify(true);
-    setEmail(data);
-  };
+  const { verify } = useContext(AuthContext);
+
   return (
     <>
-      {!verify && <SignUpForm onRegister={handleRegister} />}
-      {verify && <VerifyForm verifEmail={email} />}
+      {!verify && <SignUpForm />}
+      {verify && <VerifyForm />}
     </>
   );
 }

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../services/API';
 import { AuthContext } from '../App/App';
 import { notify } from 'helpers/notifycation';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
@@ -27,7 +28,8 @@ const FormSchema = yup.object().shape({
 });
 
 export default function LoginForm() {
-  const { setIsLoggedIn, setToken, setUserEmail } = useContext(AuthContext);
+  const { setIsLoggedIn, setToken, setUserEmail, setVerify } =
+    useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmitForm = async (values, { resetForm }) => {
@@ -36,11 +38,18 @@ export default function LoginForm() {
       if (response.status === 200) {
         setIsLoggedIn(true);
         setToken(response.data.token);
+        localStorage.setItem('loggedin', true);
+        localStorage.setItem('token', response.data.token);
         setUserEmail(response.data.email);
         navigate('/', { replace: true });
       }
     } catch (error) {
-      notify(error.message);
+      notify('error', error.response.data.message);
+      if (error.response.data.message === 'Email not verified') {
+        setVerify(true);
+        setUserEmail(values.email);
+        navigate('/register', { replace: true });
+      }
     }
   };
 
@@ -66,7 +75,12 @@ export default function LoginForm() {
             </InputLabel>
             <InputLabel>
               Password
-              <Input type="password" name="password" placeholder="********" />
+              <Input
+                type="password"
+                name="password"
+                placeholder="********"
+                title="The password must consist only ofletters and numbers and must contain at least one capital letter"
+              />
               <ErrWrapper>
                 <ErrorMessage name="password" />
               </ErrWrapper>

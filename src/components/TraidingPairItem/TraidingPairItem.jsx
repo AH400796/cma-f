@@ -27,6 +27,7 @@ export default function TraidingPairsItem({
   showfixedArb,
   arbitrageValue,
   arbPercentage,
+  maxValue,
 }) {
   const [addExclusion, setAddExclusion] = useState([]);
   const [fixedArb, setFixedArb] = useState(false);
@@ -94,59 +95,61 @@ export default function TraidingPairsItem({
   } = data[3];
   return (
     <>
-      {!isExclused && (arbitrageValue > arbPercentage || fixedArb) && (
-        <ExtraWrapper>
-          <Wrapper>
-            <FeeButton title="Fee" onClick={handleClickFee} showFee={showFee}>
-              <Fee />
-            </FeeButton>
-            <CalcButton
-              title="Caclulator"
-              onClick={handleClickCalc}
-              showCalc={showCalc}
-            >
-              <Calc />
-            </CalcButton>
-            <StarButton
-              title="Fixed arb"
-              onClick={handleClick}
-              fixedArb={fixedArb}
-            >
-              <StarIcon />
-            </StarButton>
-            <ArbWrapper>
-              <PairName>{name}</PairName>
-              <Arbitrage>
-                {arbValue}%
-                <ArrowWraper arbValue={arbValue} prevArbValue={prevArbValue}>
-                  <ArbArrow />
-                </ArrowWraper>
-              </Arbitrage>
-            </ArbWrapper>
-            <ValueWrapper>
-              <BlockWrapper>
-                <BuyBlock
-                  url={buyUrl}
-                  marketplace={buyMarket}
-                  buyPrice={buyPrice}
-                  buyQuantity={buyQty}
-                  exclusion={handleAddExclusion}
-                  buyWithdr={buyWithdr}
-                />
-                <SellBlock
-                  url={sellUrl}
-                  marketplace={sellMarket}
-                  sellPrice={sellPrice}
-                  sellQuantity={sellQty}
-                  exclusion={handleAddExclusion}
-                  sellDep={sellDep}
-                />
-              </BlockWrapper>
-            </ValueWrapper>
-          </Wrapper>
-          <Calculator data={data} showCalc={showCalc} showFee={showFee} />
-        </ExtraWrapper>
-      )}
+      {!isExclused &&
+        arbitrageValue < maxValue &&
+        (arbitrageValue > arbPercentage || fixedArb) && (
+          <ExtraWrapper>
+            <Wrapper>
+              <FeeButton title="Fee" onClick={handleClickFee} showFee={showFee}>
+                <Fee />
+              </FeeButton>
+              <CalcButton
+                title="Caclulator"
+                onClick={handleClickCalc}
+                showCalc={showCalc}
+              >
+                <Calc />
+              </CalcButton>
+              <StarButton
+                title="Fixed arb"
+                onClick={handleClick}
+                fixedArb={fixedArb}
+              >
+                <StarIcon />
+              </StarButton>
+              <ArbWrapper>
+                <PairName>{name}</PairName>
+                <Arbitrage>
+                  {arbValue}%
+                  <ArrowWraper arbValue={arbValue} prevArbValue={prevArbValue}>
+                    <ArbArrow />
+                  </ArrowWraper>
+                </Arbitrage>
+              </ArbWrapper>
+              <ValueWrapper>
+                <BlockWrapper>
+                  <BuyBlock
+                    url={buyUrl}
+                    marketplace={buyMarket}
+                    buyPrice={buyPrice}
+                    buyQuantity={buyQty}
+                    exclusion={handleAddExclusion}
+                    buyWithdr={buyWithdr}
+                  />
+                  <SellBlock
+                    url={sellUrl}
+                    marketplace={sellMarket}
+                    sellPrice={sellPrice}
+                    sellQuantity={sellQty}
+                    exclusion={handleAddExclusion}
+                    sellDep={sellDep}
+                  />
+                </BlockWrapper>
+              </ValueWrapper>
+            </Wrapper>
+            <Calculator data={data} showCalc={showCalc} showFee={showFee} />
+          </ExtraWrapper>
+        )}
     </>
   );
 }

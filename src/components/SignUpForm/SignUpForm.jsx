@@ -1,6 +1,7 @@
-// import { useState, useEffect } from 'react';
-// import { useContext } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../App/App';
 import { notify } from 'helpers/notifycation';
+import 'react-toastify/dist/ReactToastify.css';
 import { registerUser } from '../../services/API';
 
 import { Formik, ErrorMessage } from 'formik';
@@ -27,17 +28,21 @@ const FormSchema = yup.object().shape({
   password: yup.string().min(8).required(),
 });
 
-export default function SignUpForm({ onRegister }) {
+export default function SignUpForm() {
+  const { setUserEmail, setVerify } = useContext(AuthContext);
+
   const handleSubmitForm = async (values, { resetForm }) => {
     try {
       const response = await registerUser(values);
       if (response.status === 200) {
-        onRegister(values.email);
-        notify(regNotify);
+        notify('info', regNotify);
+        setUserEmail(values.email);
+        setVerify(true);
+
         resetForm();
       }
     } catch (error) {
-      notify(regNotify);
+      notify('error', error.response.data.message);
     }
   };
   return (
@@ -62,7 +67,12 @@ export default function SignUpForm({ onRegister }) {
             </InputLabel>
             <InputLabel>
               Password
-              <Input type="password" name="password" placeholder="********" />
+              <Input
+                type="password"
+                name="password"
+                placeholder="********"
+                title="The password must be at least 8 characters long, consist of only letters and numbers, and contain at least one capital letter "
+              />
               <ErrWrapper>
                 <ErrorMessage name="password" />
               </ErrWrapper>

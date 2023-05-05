@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AuthContext } from '../../components/App/App';
 import { useNavigate } from 'react-router-dom';
 
 import { verify } from '../../services/API';
 import { reVerify } from '../../services/API';
 import { notify } from 'helpers/notifycation';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -21,7 +23,8 @@ const FormSchema = yup.object().shape({
   verificationCode: yup.number().required(),
 });
 
-export default function VerifyForm({ verifEmail }) {
+export default function VerifyForm() {
+  const { userEmail } = useContext(AuthContext);
   const [verifyResponse, setVerifyResponse] = useState(null);
   const navigate = useNavigate();
 
@@ -35,18 +38,18 @@ export default function VerifyForm({ verifEmail }) {
         }, 3000);
       }
     } catch (error) {
-      notify(error.message);
+      notify('error', error.response.data.message);
     }
   };
 
   const handleResend = async () => {
     try {
-      const response = await reVerify({ email: verifEmail });
+      const response = await reVerify({ email: userEmail });
       if (response.status === 200) {
-        notify(response.data.message);
+        notify('info', response.data.message);
       }
     } catch (error) {
-      notify(error.message);
+      notify('error', error.response.data.message);
     }
   };
 

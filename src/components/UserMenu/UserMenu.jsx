@@ -17,7 +17,7 @@ import {
 
 export default function UserMenu({ userEmail }) {
   const [showMenu, setShowMenu] = useState(false);
-  const { setIsLoggedIn } = useContext(AuthContext);
+  const { setIsLoggedIn, setToken, setUserEmail } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -26,6 +26,10 @@ export default function UserMenu({ userEmail }) {
       const response = await loginOut();
       if (response.status === 200) {
         setIsLoggedIn(false);
+        setToken(null);
+        setUserEmail('');
+        localStorage.removeItem('loggedin');
+        localStorage.removeItem('token');
         navigate('/', { replace: true });
         setShowMenu(prevState => !prevState);
       }
