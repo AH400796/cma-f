@@ -28,7 +28,9 @@ export default function SellBlock({
     setExclused(true);
     exclusion(marketplace);
   };
-
+  const sQty = sellQuantity.toLocaleString('uk-UK', {
+    useGrouping: true,
+  });
   return (
     <ExtraWrapper>
       <Wrapper exclused={exclused}>
@@ -49,7 +51,7 @@ export default function SellBlock({
           </DataWrapper>
           <DataWrapper>
             <Data>amount:</Data>
-            <DataValue>{sellQuantity}</DataValue>
+            <DataValue>{sQty}</DataValue>
           </DataWrapper>
         </Link>
       </Wrapper>

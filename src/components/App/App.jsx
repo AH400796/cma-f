@@ -3,10 +3,12 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy, createContext, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { getCurrentUser } from '../../services/API';
-import Skeleton from 'components/Skeleton';
+import Loader from '../Loader';
 import SharedLayout from 'components/SharedLayout';
 // import PrivateRoute from 'routes/PrivateRoute';
 import RestrictedRoute from 'routes/RestrictedRoute';
+
+import { LoaderWrapper } from './App.styled';
 
 const MainPage = lazy(() => import('../../pages/MainPage'));
 const RegisterPage = lazy(() => import('../../pages/RegisterPage'));
@@ -50,7 +52,14 @@ export default function App() {
   };
 
   return isRefreshing ? (
-    <Skeleton width={'100%'} height={'100%'} />
+    <LoaderWrapper>
+      <Loader
+        type={'spinningBubbles'}
+        color={'#f85b12b2'}
+        height={150}
+        width={150}
+      />
+    </LoaderWrapper>
   ) : (
     <AuthContext.Provider value={userConfig}>
       <ToastContainer />

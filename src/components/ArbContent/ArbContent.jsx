@@ -1,7 +1,8 @@
+import { io } from 'socket.io-client';
 import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../App/App';
 
-import { getData } from '../../services/API';
+// import { getData } from '../../services/API';
 import TraidingPairItem from '../TraidingPairItem';
 import RangeInput from '../RangeInput';
 import {
@@ -23,18 +24,27 @@ export default function ArbCont() {
   });
   const { token } = useContext(AuthContext);
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const responce = await getData();
+  //     setDataList(responce.data);
+  //   };
+
+  //   fetchData();
+  //   const interval = setInterval(() => {
+  //     fetchData();
+  //   }, 60000);
+
+  //   return () => clearInterval(interval);
+  // }, []);
+
   useEffect(() => {
-    const fetchData = async () => {
-      const responce = await getData();
-      setDataList(responce.data);
-    };
+    const socket = io('http://localhost:3010');
+    socket.on('updatedData', data => {
+      setDataList(data);
+    });
 
-    fetchData();
-    const interval = setInterval(() => {
-      fetchData();
-    }, 60000);
-
-    return () => clearInterval(interval);
+    return () => socket.disconnect();
   }, []);
 
   const maxValue = token ? 10000 : 0.5;

@@ -28,7 +28,9 @@ export default function BuyBlock({
     setExclused(true);
     exclusion(marketplace);
   };
-
+  const bQty = buyQuantity.toLocaleString('uk-UK', {
+    useGrouping: true,
+  });
   return (
     <ExtraWrapper>
       <Wrapper exclused={exclused}>
@@ -44,7 +46,7 @@ export default function BuyBlock({
           </DataWrapper>
           <DataWrapper>
             <Data>amount:</Data>
-            <DataValue>{buyQuantity}</DataValue>
+            <DataValue>{bQty}</DataValue>
           </DataWrapper>
         </Link>
       </Wrapper>

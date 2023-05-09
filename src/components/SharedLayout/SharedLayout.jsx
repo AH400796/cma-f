@@ -1,10 +1,16 @@
-import { Wrapper, ContentWrapper, MainSection } from './SharedLayout.styled';
+import {
+  LoaderWrapper,
+  Wrapper,
+  ContentWrapper,
+  MainSection,
+} from './SharedLayout.styled';
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 
 import HeaderSection from 'components/HeaderSection';
 import Container from 'components/Container';
-import Skeleton from 'components/Skeleton';
+
+import Loader from 'components/Loader';
 
 import Footer from 'components/Footer';
 
@@ -15,7 +21,18 @@ export default function SharedLayout() {
         <HeaderSection />
         <MainSection>
           <Container>
-            <Suspense fallback={<Skeleton width={'100%'} height={'100%'} />}>
+            <Suspense
+              fallback={
+                <LoaderWrapper>
+                  <Loader
+                    type={'spinningBubbles'}
+                    color={'#f85b12b2'}
+                    height={100}
+                    width={100}
+                  />
+                </LoaderWrapper>
+              }
+            >
               <Outlet />
             </Suspense>
           </Container>
