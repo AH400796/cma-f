@@ -17,7 +17,8 @@ import {
   TimeWrapper,
 } from './ArbContent.styled';
 
-const URL = `https://cma-p5y3.onrender.com/api`;
+const URL = `https://cma-p5y3.onrender.com/`;
+// http://localhost:3010;
 
 export default function ArbCont() {
   const [dataList, setDataList] = useState([]);
