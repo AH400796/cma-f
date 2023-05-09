@@ -17,6 +17,8 @@ import {
   TimeWrapper,
 } from './ArbContent.styled';
 
+const URL = `https://cma-p5y3.onrender.com/api`;
+
 export default function ArbCont() {
   const [dataList, setDataList] = useState([]);
   const [arbPercentage, setArbPercentage] = useState(() => {
@@ -39,7 +41,7 @@ export default function ArbCont() {
   // }, []);
 
   useEffect(() => {
-    const socket = io('http://localhost:3010');
+    const socket = io(URL);
     socket.on('updatedData', data => {
       setDataList(data);
     });
