@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 export const InfoWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 10px;
   padding-bottom: 20px;
 `;
 export const TimeWrapper = styled.div`
@@ -21,6 +21,35 @@ export const TimeWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 9px;
+  padding: 12px;
+  background: linear-gradient(
+    274.25deg,
+    #453432 23.51%,
+    rgba(69, 52, 50, 0.83) 50.89%,
+    rgba(117, 104, 77, 0.81) 308.27%
+  );
+  box-shadow: 2px 2px 4px 0px #070707;
+  border-radius: 5px;
+`;
+export const PercentageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  width: 320px;
+  padding: 10px;
+
+  color: #f1e892;
+  background: linear-gradient(
+    274.25deg,
+    #453432 23.51%,
+    rgba(69, 52, 50, 0.83) 50.89%,
+    rgba(117, 104, 77, 0.81) 308.27%
+  );
+  box-shadow: 2px 2px 5px 0px #070707;
+  border-radius: 5px;
 `;
 
 export const List = styled.ul`
@@ -32,17 +61,6 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li``;
-
-export const PercentageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #c4c4c4;
-
-  gap: 5px;
-  width: 320px;
-`;
 
 export const Percentage = styled.span`
   font-size: 24px;
@@ -57,7 +75,7 @@ export const PercentageText = styled.span`
 export const Time = styled.span`
   font-size: 16px;
   font-weight: 700;
-  color: #c4c4c4;
+  color: #f1e892;
 `;
 
 export const Input = styled.input`

@@ -26,7 +26,7 @@ export default function SharedLayout() {
                 <LoaderWrapper>
                   <Loader
                     type={'spinningBubbles'}
-                    color={'#f85b12b2'}
+                    color={'#ff7b3eb2'}
                     height={100}
                     width={100}
                   />

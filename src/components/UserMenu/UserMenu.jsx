@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { FaUserAlt } from 'react-icons/fa';
 
 import { AuthContext } from '../App/App';
 import { loginOut } from '../../services/API';
+
 import {
   MenuWrapper,
+  UserIconWrapper,
   LogoutButton,
   UserWrapper,
   UserSetting,
@@ -13,6 +15,7 @@ import {
   UserProfile,
   PreferencesButton,
   MenuHolder,
+  Backdrop,
 } from './UserMenu.styled';
 
 export default function UserMenu({ userEmail }) {
@@ -20,6 +23,19 @@ export default function UserMenu({ userEmail }) {
   const { setIsLoggedIn, setToken, setUserEmail } = useContext(AuthContext);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleKeyEscape = event => {
+      if (event.code === 'Escape') {
+        setShowMenu(false);
+      }
+    };
+    if (showMenu === true) {
+      window.addEventListener('keydown', handleKeyEscape);
+    } else {
+      window.removeEventListener('keydown', handleKeyEscape);
+    }
+  }, [showMenu]);
 
   const handleLogOut = async () => {
     try {
@@ -42,21 +58,31 @@ export default function UserMenu({ userEmail }) {
     setShowMenu(prevState => !prevState);
   };
 
+  const handleBackdropClick = event => {
+    if (event.target === event.currentTarget) {
+      setShowMenu(false);
+    }
+  };
+
   return (
     <MenuWrapper>
       <UserWrapper>
         <UserSetting type="button" onClick={handleMenu}>
-          <FaUserAlt color={'#c9510c'} size={'25'} />
+          <UserIconWrapper>
+            <FaUserAlt color={'#c9510c'} size={'25'} />
+          </UserIconWrapper>
         </UserSetting>
-        <MenuHolder>
-          <UserProfile showMenu={showMenu}>
-            <UserEmail>{userEmail}</UserEmail>
-            <PreferencesButton type="button">Preferences</PreferencesButton>
-            <LogoutButton type="button" onClick={handleLogOut}>
-              Log out
-            </LogoutButton>
-          </UserProfile>
-        </MenuHolder>
+        <Backdrop onClick={handleBackdropClick} showMenu={showMenu}>
+          <MenuHolder>
+            <UserProfile showMenu={showMenu}>
+              <UserEmail>{userEmail || '********'}</UserEmail>
+              <PreferencesButton type="button">Preferences</PreferencesButton>
+              <LogoutButton type="button" onClick={handleLogOut}>
+                Log out
+              </LogoutButton>
+            </UserProfile>
+          </MenuHolder>
+        </Backdrop>
       </UserWrapper>
     </MenuWrapper>
   );

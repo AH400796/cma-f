@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   position: absolute;
+  display: inline-block;
   top: -5px;
   left: 100%;
   width: 65%;
@@ -34,7 +35,6 @@ export const FeeFormWrapper = styled.div`
   position: absolute;
   top: 5px;
   width: 96%;
-
   height: 224px;
   padding: 10px;
   background: linear-gradient(

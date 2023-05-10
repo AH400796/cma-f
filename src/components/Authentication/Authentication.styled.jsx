@@ -11,20 +11,20 @@ export const AuthWrapper = styled.div`
 
 export const StyledLink = styled(NavLink)`
   font-size: 16px;
-  padding: 15px;
+  padding: 20px;
 
   text-align: left;
   text-decoration: none;
-  color: #f85b12;
+  color: #ff7b3e;
   font-weight: 600;
 
   &.active {
-    color: #d8a331;
+    color: #f1e892;
     text-decoration: underline;
   }
 
   &:hover,
   &:focus {
-    color: #d8a331;
+    color: #f1e892;
   }
 `;

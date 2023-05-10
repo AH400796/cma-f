@@ -27,20 +27,6 @@ export default function ArbCont() {
   });
   const { token } = useContext(AuthContext);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const responce = await getData();
-  //     setDataList(responce.data);
-  //   };
-
-  //   fetchData();
-  //   const interval = setInterval(() => {
-  //     fetchData();
-  //   }, 60000);
-
-  //   return () => clearInterval(interval);
-  // }, []);
-
   useEffect(() => {
     const socket = io(URL);
     socket.on('updatedData', data => {

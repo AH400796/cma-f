@@ -5,12 +5,13 @@ import { ToastContainer } from 'react-toastify';
 import { getCurrentUser } from '../../services/API';
 import Loader from '../Loader';
 import SharedLayout from 'components/SharedLayout';
-// import PrivateRoute from 'routes/PrivateRoute';
+import PrivateRoute from 'routes/PrivateRoute';
 import RestrictedRoute from 'routes/RestrictedRoute';
 
 import { LoaderWrapper } from './App.styled';
 
 const MainPage = lazy(() => import('../../pages/MainPage'));
+const ArbPage = lazy(() => import('../../pages/ArbPage'));
 const RegisterPage = lazy(() => import('../../pages/RegisterPage'));
 const LoginPage = lazy(() => import('../../pages/LoginPage'));
 
@@ -55,7 +56,7 @@ export default function App() {
     <LoaderWrapper>
       <Loader
         type={'spinningBubbles'}
-        color={'#f85b12b2'}
+        color={'#ff7b3eb2'}
         height={150}
         width={150}
       />
@@ -73,6 +74,10 @@ export default function App() {
           <Route
             path="register"
             element={<RestrictedRoute component={RegisterPage} />}
+          />
+          <Route
+            path="arbitrage"
+            element={<PrivateRoute component={ArbPage} />}
           />
           <Route path="*" element={<MainPage />} />
         </Route>

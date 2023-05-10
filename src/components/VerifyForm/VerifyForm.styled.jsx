@@ -15,7 +15,7 @@ export const VerifyTextWrapper = styled.div`
   padding: 0 20px 20px 20px;
   font-weight: 500;
 
-  color: #f85b12;
+  color: #ff7b3e;
   background: linear-gradient(
     274.25deg,
     #453432 23.51%,
@@ -41,7 +41,7 @@ export const LoginFormStyled = styled(Form)`
   padding: 20px;
   font-weight: 500;
 
-  color: #f85b12;
+  color: #ff7b3e;
   background: linear-gradient(
     274.25deg,
     #453432 23.51%,
@@ -128,15 +128,15 @@ export const Button = styled.button`
 
   border-radius: 5px;
 
-  color: #f85b12;
+  color: #ff7b3e;
   background-color: #4e4039;
-  border: 2px solid #f85b12;
+  border: 2px solid #ff7b3e;
   box-shadow: 1px 1px 3px #c9c1c1;
   cursor: pointer;
 
   &:hover,
   &:focus {
-    background-color: #f85b12;
+    background-color: #ff7b3e;
     color: #ffffff;
   }
 

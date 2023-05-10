@@ -26,7 +26,7 @@ export const ContactsText = styled.p`
   font-size: 16px;
   font-weight: 600;
   text-decoration: underline;
-  color: #f85b12;
+  color: #ff7b3e;
 `;
 
 export const TextTitle = styled.p`
@@ -34,20 +34,20 @@ export const TextTitle = styled.p`
   font-size: 16px;
   font-weight: 600;
   text-decoration: underline;
-  color: #ec9166;
+  color: #f1e892;
 `;
 
 export const Text = styled.p`
   text-align: left;
   font-size: 14px;
   font-weight: 400;
-  color: #ec9166;
+  color: #f1e892;
 `;
 
 export const FooterText = styled.p`
   font-size: 16px;
   font-weight: 600;
-  color: #f85b12;
+  color: #ff7b3e;
 `;
 
 export const TextWrapper = styled.div`
@@ -70,9 +70,13 @@ export const Link = styled.a`
   display: flex;
   align-items: center;
 
-  color: #f85b12;
+  color: #ff7b3e;
   font-size: 16px;
   font-weight: 600;
+  &:hover,
+  &:focus {
+    color: #f1e892;
+  }
 `;
 
 export const IconWrapper = styled.div`

@@ -35,7 +35,7 @@ export const PairName = styled.span`
   padding: 10px;
   font-size: 24px;
   font-weight: bold;
-  color: #f85b12;
+  color: #ff7b3e;
 `;
 export const ArbWrapper = styled.div`
   display: flex;

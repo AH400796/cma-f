@@ -11,19 +11,28 @@ export const UserWrapper = styled.div`
   position: relative;
 `;
 
+export const Backdrop = styled.div`
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  pointer-events: ${props => (props.showMenu ? 'all' : 'none')};
+`;
+
 export const MenuHolder = styled.div`
   position: absolute;
-  top: 150%;
-  right: -20px;
-  width: 400px;
-  height: 600px;
+  display: inline-block;
+  top: 115px;
+  right: 5%;
+  padding: 0 5px 5px 0;
   overflow: hidden;
+  border-radius: 20px 0 20px 0;
 `;
 
 export const UserProfile = styled.div`
-  position: absolute;
-  right: 20px;
-  top: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -45,25 +54,37 @@ export const UserProfile = styled.div`
 
 export const UserEmail = styled.span`
   width: 100%;
-  text-align: right;
-  color: #d8a331;
-
   margin-bottom: 30px;
+  text-align: right;
+  font-weight: 600;
+
+  color: #f1e892;
+`;
+
+export const UserIconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+  padding: 15px;
+  background-color: #e7e6e6;
+  &:hover,
+  &:focus {
+    background-color: #e2daaa;
+  }
 `;
 
 export const UserSetting = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
+  background-color: transparent;
   border: none;
-  padding: 10px;
-  background-color: #e7e6e6;
+  outline: none;
+
+  padding: 20px;
   cursor: pointer;
-  &:hover,
-  &:focus {
-    background-color: #8cc75c;
-  }
 `;
 
 export const LogoutButton = styled.button`
@@ -72,20 +93,20 @@ export const LogoutButton = styled.button`
   font-weight: 600;
   text-align: right;
   text-decoration: none;
-  color: #f85b12;
+  color: #ff7b3e;
   background-color: transparent;
   border: none;
   border-top: 1px solid #9c9c9c53;
   cursor: pointer;
 
   &.active {
-    color: #d8a331;
+    color: #f1e892;
     text-decoration: underline;
   }
 
   &:hover,
   &:focus {
-    color: #d8a331;
+    color: #f1e892;
   }
 `;
 export const PreferencesButton = styled.button`
@@ -95,19 +116,19 @@ export const PreferencesButton = styled.button`
   text-align: right;
   text-decoration: none;
   background-color: transparent;
-  color: #f85b12;
+  color: #ff7b3e;
   border: none;
   border-top: 1px solid #9c9c9c53;
 
   cursor: pointer;
 
   &.active {
-    color: #d8a331;
+    color: #f1e892;
     text-decoration: underline;
   }
 
   &:hover,
   &:focus {
-    color: #d8a331;
+    color: #f1e892;
   }
 `;

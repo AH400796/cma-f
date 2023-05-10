@@ -5,36 +5,38 @@ export const NavWrapper = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #f85b12;
+  color: #ff7b3e;
 `;
 
-export const Title = styled.span`
+export const LinkWrapper = styled.div`
   display: flex;
-  gap: 0;
-  height: 45px;
-  font-size: 24px;
-  line-height: 0.9;
-`;
-export const Crypto = styled.span`
-  align-self: flex-start;
-  border-bottom: 2px solid #f85b12;
-`;
-export const Markets = styled.span`
-  align-self: center;
-  border-bottom: 2px solid #f85b12;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
 `;
 
-export const Arbitrage = styled.span`
-  align-self: flex-end;
-  border-bottom: 2px solid #f85b12;
+export const StyledLogoLink = styled(NavLink)``;
+
+export const LogoIcon = styled.img`
+  width: 250px;
 `;
 
 export const StyledLink = styled(NavLink)`
-  padding: 8px;
+  font-size: 16px;
+  padding: 30px 0;
+
   text-align: left;
-  font-weight: 600;
-  font-style: italic;
   text-decoration: none;
-  color: #f85b12;
-  border-radius: 4px;
+  color: #ff7b3e;
+  font-weight: 600;
+
+  &.active {
+    color: #f1e892;
+    text-decoration: underline;
+  }
+
+  &:hover,
+  &:focus {
+    color: #f1e892;
+  }
 `;

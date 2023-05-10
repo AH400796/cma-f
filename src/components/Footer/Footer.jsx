@@ -21,24 +21,20 @@ export default function Footer() {
       <Container>
         <TextWrapper>
           <TextTitle>General Terms and Conditions:</TextTitle>
+
           <Text>
-            1. The CMA application (Crypto Markets Arbitrage) was created to
-            find arbitrage cases on spot trading of well-known (and not so)
-            cryptocurrency exchanges.
-          </Text>
-          <Text>
-            2. The user of the website bears full responsibility for his actions
+            1. The user of the website bears full responsibility for his actions
             and transactions on the exchanges. He performs all his operations at
             his own peril and risk.
           </Text>
           <Text>
-            3. All information is provided from the exchanges as quickly and
+            2. All information is provided from the exchanges as quickly and
             accurately as possible from the point of view of the API
             capabilities provided by the exchanges and the available
             functionality and capabilities of this application.
           </Text>
           <Text>
-            4. We strongly recommend that you independently check all possible
+            3. We strongly recommend that you independently check all possible
             information on the exchanges before each transaction: the current
             price, the size of the order, and especially information about the
             transaction networks (their presence on both exchanges of the
@@ -53,13 +49,13 @@ export default function Footer() {
           <Wrapper>
             <Link href="https://t.me/AH400796" aria-label="telegram">
               <IconWrapper>
-                <FaTelegram size={20} color={'#f85b12'} />
+                <FaTelegram size={20} color={'inherit'} />
               </IconWrapper>
               Telegram
             </Link>
             <Link href="mailto:a.hokhman@gmail.com" aria-label="email">
               <IconWrapper>
-                <IoMdMail size={20} color={'#f85b12'} />
+                <IoMdMail size={20} color={'inherit'} />
               </IconWrapper>
               a.hokhman@gmail.com
             </Link>

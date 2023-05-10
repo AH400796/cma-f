@@ -8,6 +8,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(117, 116, 116);
+  background: linear-gradient(
+    274.25deg,
+    #8d8d8d 23.51%,
+    rgb(158, 157, 157) 50.89%,
+    rgb(196, 196, 196) 308.27%
+  );
 }
 html,
 body,
