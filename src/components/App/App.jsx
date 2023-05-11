@@ -34,7 +34,10 @@ export default function App() {
       return;
     }
     getCurrentUser(token)
-      .then(res => setUserEmail(res.data.email))
+      .then(res => {
+        setUserEmail(res.data.email);
+        setIsLoggedIn(true);
+      })
       .catch(error => console.log(error))
       .finally(setIsRefreshing(false));
   }, [token]);
