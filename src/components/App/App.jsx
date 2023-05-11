@@ -30,6 +30,10 @@ export default function App() {
   useEffect(() => {
     setIsRefreshing(true);
     if (token === null) {
+      setUserEmail('');
+
+      setIsLoggedIn(false);
+      localStorage.removeItem('loggedin');
       setIsRefreshing(false);
       return;
     }
@@ -38,7 +42,7 @@ export default function App() {
         setUserEmail(res.data.email);
         // setIsLoggedIn(true);
       })
-      .catch(error => console.log(123))
+      .catch(error => console.log(error))
       .finally(setIsRefreshing(false));
   }, [token]);
 
