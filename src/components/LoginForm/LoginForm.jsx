@@ -38,7 +38,7 @@ export default function LoginForm() {
       if (response.status === 200) {
         setIsLoggedIn(true);
         setToken(response.data.token);
-        // localStorage.setItem('loggedin', true);
+        localStorage.setItem('loggedin', true);
         localStorage.setItem('token', response.data.token);
         setUserEmail(response.data.email);
         navigate('/arbitrages', { replace: true });

@@ -36,7 +36,7 @@ export default function App() {
     getCurrentUser(token)
       .then(res => {
         setUserEmail(res.data.email);
-        setIsLoggedIn(true);
+        // setIsLoggedIn(true);
       })
       .catch(error => console.log(123))
       .finally(setIsRefreshing(false));
