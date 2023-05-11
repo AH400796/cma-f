@@ -31,7 +31,6 @@ export default function App() {
     setIsRefreshing(true);
     if (token === null) {
       setUserEmail('');
-
       setIsLoggedIn(false);
       localStorage.removeItem('loggedin');
       setIsRefreshing(false);
