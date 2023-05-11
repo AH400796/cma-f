@@ -22,7 +22,7 @@ export default function NavBar({ screenWidth }) {
           <LogoIcon src={Logo} alt="logo" width={250} />
         </StyledLogoLink>
         <StyledLink to="/">About CMA</StyledLink>
-        {isLoggedIn && <StyledLink to="/arbitrage">Arbitrage</StyledLink>}
+        {isLoggedIn && <StyledLink to="/arbitrages">Arbitrage</StyledLink>}
       </LinkWrapper>
       {!isLoggedIn && <Authentication />}
       {isLoggedIn && <UserMenu userEmail={userEmail} />}
