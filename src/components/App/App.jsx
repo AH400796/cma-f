@@ -38,7 +38,7 @@ export default function App() {
         setUserEmail(res.data.email);
         setIsLoggedIn(true);
       })
-      .catch(error => console.log(error))
+      .catch(error => console.log(123))
       .finally(setIsRefreshing(false));
   }, [token]);
 
