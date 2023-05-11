@@ -11,9 +11,9 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
-export const getData = async function () {
-  return await axios.get('/arbitrages');
-};
+// export const getData = async function () {
+//   return await axios.get('/arbitrages');
+// };
 
 export const excludePair = async function (market, symbol) {
   return await axios.post(`/arbitrages/${market}/${symbol}`);

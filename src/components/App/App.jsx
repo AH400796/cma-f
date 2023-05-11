@@ -79,7 +79,7 @@ export default function App() {
             element={<RestrictedRoute component={RegisterPage} />}
           />
           <Route
-            path="arbitrage"
+            path="arbitrages"
             element={<PrivateRoute component={ArbPage} />}
           />
           <Route path="*" element={<MainPage />} />
