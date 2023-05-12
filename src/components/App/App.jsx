@@ -39,9 +39,12 @@ export default function App() {
     getCurrentUser(token)
       .then(res => {
         setUserEmail(res.data.email);
-        // setIsLoggedIn(true);
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        if (error.response.statusText === 'Unauthorized') {
+          setIsLoggedIn(false);
+        }
+      })
       .finally(setIsRefreshing(false));
   }, [token]);
 

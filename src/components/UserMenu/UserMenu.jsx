@@ -20,7 +20,8 @@ import {
 
 export default function UserMenu({ userEmail }) {
   const [showMenu, setShowMenu] = useState(false);
-  const { setIsLoggedIn, setToken, setUserEmail } = useContext(AuthContext);
+  const { setIsLoggedIn, setToken, setUserEmail, isRefreshing } =
+    useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -67,11 +68,13 @@ export default function UserMenu({ userEmail }) {
   return (
     <MenuWrapper>
       <UserWrapper>
-        <UserSetting type="button" onClick={handleMenu}>
-          <UserIconWrapper>
-            <FaUserAlt color={'#c9510c'} size={'25'} />
-          </UserIconWrapper>
-        </UserSetting>
+        {!isRefreshing && (
+          <UserSetting type="button" onClick={handleMenu}>
+            <UserIconWrapper>
+              <FaUserAlt color={'#c9510c'} size={'25'} />
+            </UserIconWrapper>
+          </UserSetting>
+        )}
         <Backdrop onClick={handleBackdropClick} showMenu={showMenu}>
           <MenuHolder>
             <UserProfile showMenu={showMenu}>

@@ -31,7 +31,6 @@ export default function ArbCont() {
     const socket = io(URL);
     socket.on('updatedData', data => {
       setDataList(data);
-      console.log(123);
     });
 
     return () => socket.disconnect();
