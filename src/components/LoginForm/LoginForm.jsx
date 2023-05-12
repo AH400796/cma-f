@@ -41,7 +41,7 @@ export default function LoginForm() {
         localStorage.setItem('loggedin', true);
         localStorage.setItem('token', response.data.token);
         setUserEmail(response.data.email);
-        navigate('/arbitrages', { replace: true });
+        // navigate('/arbitrages', { replace: true });
       }
     } catch (error) {
       notify('error', error.response.data.message);
