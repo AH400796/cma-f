@@ -29,7 +29,6 @@ export default function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    debugger;
     setIsRefreshing(true);
     if (token === null) {
       setUserEmail('');
@@ -40,11 +39,9 @@ export default function App() {
     }
     getCurrentUser(token)
       .then(res => {
-        console.log('response: ', res);
         setUserEmail(res.data.email);
       })
       .catch(error => {
-        console.log('error: ', error);
         if (error.response.status === 401) {
           setIsLoggedIn(false);
           navigate('/', { replace: true });
