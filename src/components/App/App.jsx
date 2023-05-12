@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { lazy, createContext, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { getCurrentUser } from '../../services/API';
@@ -26,6 +26,7 @@ export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(() => lsIsLoggedIn);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [token, setToken] = useState(() => lsToken);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsRefreshing(true);
@@ -45,10 +46,11 @@ export default function App() {
         console.log('error: ', error);
         if (error.response.status === 401) {
           setIsLoggedIn(false);
+          navigate('/', { replace: true });
         }
       })
       .finally(setIsRefreshing(false));
-  }, [token]);
+  }, [token, navigate]);
 
   const userConfig = {
     verify,
