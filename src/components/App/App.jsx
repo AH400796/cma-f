@@ -29,6 +29,7 @@ export default function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    debugger;
     setIsRefreshing(true);
     if (token === null) {
       setUserEmail('');
